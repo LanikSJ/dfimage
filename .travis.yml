@@ -22,6 +22,8 @@ env:
 before_install:
 - docker pull alpine:latest
 - wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz
+- wget -q --no-check-certificate https://bootstrap.pypa.io/get-pip.py
+- python3 get-pip.py
 
 install:
 - tar xzf master.tar.gz
