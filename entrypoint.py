@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 
 from sys import argv
-
 from docker import Client
+
 
 class ImageNotFound(Exception):
     pass
+
 
 class MainObj(object):
     def __init__(self):
@@ -50,5 +51,6 @@ class MainObj(object):
             self._insert_step(i['CreatedBy'])
         if not rec:
             self.cmds.append("FROM {}".format(actual_tag))
+
 
 my_obj = MainObj()
