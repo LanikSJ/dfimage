@@ -35,7 +35,8 @@ install:
 - cd ../..
 - rm -rf kcov-master
 - mkdir -p coverage
-- pip install docker-py
+- pip3 install -U pip
+- pip3 install docker-py
 - docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage `docker images alpine --format "{{.ID}}"`
 
 script:
