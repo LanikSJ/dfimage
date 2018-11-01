@@ -1,4 +1,5 @@
 # Dockerfile From Image (dfimage)
+[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)
 
 Inspiration: https://github.com/CenturyLinkLabs/dockerfile-from-image<br/>
 Container Source: https://hub.docker.com/r/chenzj/dfimage/
