@@ -1,12 +1,44 @@
-sudo: required
+addons:
+  apt:
+    packages:
+      - binutils-dev
+      - libcurl4-openssl-dev
+      - libdw-dev
+      - libiberty-dev
+      - python3
+      - python3-pip
 
-language: ruby
+language: bash
+
+sudo: required
 
 services:
   - docker
 
+env:
+  global:
+    - CODECOV_TOKEN=77a5a937-8d88-4ff7-be13-405a31ad1bc4
+    - PATH=${PATH}:${HOME}/kcov/bin
+
 before_install:
 - docker pull alpine:latest
+- wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz
+
+install:
+- tar xzf master.tar.gz
+- cd kcov-master
+- mkdir build
+- cd build
+- cmake -DCMAKE_INSTALL_PREFIX=${HOME}/kcov ..
+- make
+- make install
+- cd ../..
+- rm -rf kcov-master
+- mkdir -p coverage
+- docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage `docker images alpine --format "{{.ID}}"`
 
 script:
-- docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage `docker images alpine --format "{{.ID}}"`
+- kcov coverage entrypoint.py
+
+after_success:
+- bash <(curl -s https://codecov.io/bash)
