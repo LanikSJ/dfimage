@@ -8,10 +8,6 @@ Reverse-engineers a Dockerfile from a Docker image.
 
 Similar to how the `docker history` command works, the Python script is able to re-create the Dockerfile ([approximately](#limitations)) that was used to generate an image using the metadata that Docker stores alongside each image layer.
 
-## Prerequisites
-
-You'll also need to authenticate against ECR as described [here](https://docs.aws.amazon.com/cli/latest/reference/ecr/get-login.html).
-
 ## Usage
 
 The Python script is itself packaged as a Docker image so it can easily be executed with the Docker *run* command:
