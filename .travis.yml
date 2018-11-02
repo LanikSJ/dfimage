@@ -25,14 +25,14 @@ before_install:
 - sudo -H python3 get-pip.py
 
 install:
-- sudo -H pip3 install coverage
+- sudo -H pip3 install codecov
 - mkdir -p coverage
 - docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage `docker images alpine --format "{{.ID}}"`
 
 script:
 - sudo -H pip3 install -U pip
 - sudo -H pip3 install docker docker-py
-- coverage entrypoint.py
+- coverage run entrypoint.py
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
