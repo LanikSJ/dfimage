@@ -21,27 +21,18 @@ env:
 
 before_install:
 - docker pull alpine:latest
-- wget https://github.com/SimonKagstrom/kcov/archive/master.tar.gz
 - wget -q --no-check-certificate https://bootstrap.pypa.io/get-pip.py
 - sudo -H python3 get-pip.py
 
 install:
-- tar xzf master.tar.gz
-- cd kcov-master
-- mkdir build
-- cd build
-- cmake -DCMAKE_INSTALL_PREFIX=${HOME}/kcov ..
-- make
-- make install
-- cd ../..
-- rm -rf kcov-master
+- sudo -H pip3 install coverage
 - mkdir -p coverage
 - docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage `docker images alpine --format "{{.ID}}"`
 
 script:
 - sudo -H pip3 install -U pip
 - sudo -H pip3 install docker docker-py
-- kcov coverage entrypoint.py
+- coverage entrypoint.py
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
