@@ -32,7 +32,7 @@ install:
 script:
 - sudo -H pip3 install -U pip
 - sudo -H pip3 install docker docker-py
-- coverage run entrypoint.py `docker images alpine --format "{{.ID}}"
+- coverage run entrypoint.py `docker images alpine --format "{{.ID}}"`
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
