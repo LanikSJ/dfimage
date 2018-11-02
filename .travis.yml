@@ -25,12 +25,10 @@ before_install:
 - sudo -H python3 get-pip.py
 
 install:
-- sudo -H pip3 install codecov
+- sudo -H pip3 install -U docker docker-py codecov pip
 - mkdir -p coverage
 
 script:
-- sudo -H pip3 install -U pip
-- sudo -H pip3 install docker docker-py
 - export dfimage=$(docker images alpine --format "{{.ID}}")
 - docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage $dfimage
 - coverage run entrypoint.py $dfimage
