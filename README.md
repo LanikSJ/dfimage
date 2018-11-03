@@ -1,4 +1,5 @@
 # Dockerfile From Image (dfimage)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b)](https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage) [![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage) [![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)
 
 Inspiration: https://github.com/CenturyLinkLabs/dockerfile-from-image<br/>
