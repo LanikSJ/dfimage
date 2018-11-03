@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3.8
 
 RUN apk --no-cache update \
     && apk add --no-cache python3 wget \
