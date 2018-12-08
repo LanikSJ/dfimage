@@ -33,7 +33,7 @@ script:
 - export dfimage=$(docker images alpine --format "{{.ID}}")
 - docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage $dfimage
 - coverage run entrypoint.py $dfimage
-- coverage xml && python-codacy-coverage -r coverage.xml
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+- coverage xml && python-codacy-coverage -r coverage.xml
