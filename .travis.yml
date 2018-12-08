@@ -17,6 +17,7 @@ services:
 env:
   global:
     - CODECOV_TOKEN=77a5a937-8d88-4ff7-be13-405a31ad1bc4
+    - CODACY_PROJECT_TOKEN=1f838926c6764e3ca4f755c46a7ee8c7
     - PATH=${PATH}:${HOME}/kcov/bin
 
 before_install:
@@ -25,8 +26,7 @@ before_install:
 - sudo -H python3 get-pip.py
 
 install:
-- sudo -H pip3 install -U docker docker-py codecov pip
-- mkdir -p coverage
+- sudo -H pip3 install -U docker docker-py codacy-coverage codecov pip
 
 script:
 - export dfimage=$(docker images alpine --format "{{.ID}}")
@@ -35,3 +35,4 @@ script:
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+- python-codacy-coverage -r coverage.xml
