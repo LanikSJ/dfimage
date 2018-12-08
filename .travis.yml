@@ -36,4 +36,5 @@ script:
 
 after_success:
 - bash <(curl -s https://codecov.io/bash)
+- ls -alh && ls -alh coverage/
 - python-codacy-coverage -r coverage/coverage.xml
