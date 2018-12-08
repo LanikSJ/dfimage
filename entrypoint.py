@@ -8,7 +8,7 @@ class ImageNotFound(Exception):
     pass
 
 
-class MainObj(object):
+class MainObj:
     def __init__(self):
         super(MainObj, self).__init__()
         self.cmds = []
@@ -53,4 +53,4 @@ class MainObj(object):
             self.cmds.append("FROM {}".format(actual_tag))
 
 
-my_obj = MainObj()
+__main__ = MainObj()
