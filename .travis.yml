@@ -27,7 +27,6 @@ before_install:
 
 install:
 - sudo -H pip3 install -U docker docker-py codacy-coverage codecov pip
-- mkdir -p coverage
 
 script:
 - export dfimage=$(docker images alpine --format "{{.ID}}")
