@@ -1,15 +1,5 @@
 # Dockerfile From Image (dfimage)
-
-Build:  
-[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)  
-Docker:  
-[![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)[![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)  
-Code:  
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b)](https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade_Dashboard)[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/60355d4f69bd426689fa6917fc3b8409)](https://www.codacy.com/app/Lanik/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Coverage)[![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)  
-Ruby:  
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=LanikSJ/dfimage)](https://dependabot.com)  
-License:  
-[![GPLv3 license](https://badgen.net/github/license/LanikSJ/dfimage)](http://perso.crans.org/besson/LICENSE.html)
+[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)  [![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)[![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b)](https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade_Dashboard)[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/60355d4f69bd426689fa6917fc3b8409)](https://www.codacy.com/app/Lanik/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Coverage)[![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=LanikSJ/dfimage)](https://dependabot.com)[![GPLv3 license](https://badgen.net/github/license/LanikSJ/dfimage)](http://perso.crans.org/besson/LICENSE.html)
 
 Reverse-engineers a Dockerfile from a Docker image.
 
