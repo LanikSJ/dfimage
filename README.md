@@ -1,5 +1,5 @@
 # Dockerfile From Image (dfimage)
-[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)[![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)[![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=LanikSJ/dfimage)](https://dependabot.com)
+[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)[![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)[![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)[![](https://images.microbadger.com/badges/image/laniksj/dfimage.svg)](https://microbadger.com/images/laniksj/dfimage "Get your own image badge on microbadger.com")[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=LanikSJ/dfimage)](https://dependabot.com)
 
 Reverse-engineers a Dockerfile from a Docker image.
 
