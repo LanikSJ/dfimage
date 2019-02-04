@@ -24,7 +24,7 @@ Since the script interacts with the Docker API in order to query the metadata fo
 
 Note that the script only works against images that exist in your local image repository (the stuff you see when you type `docker images`). If you want to generate a Dockerfile for an image that doesn't exist in your local repo you'll first need to `docker pull` it.
 
-## Example
+## Docker Example
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
     $ docker pull laniksj/dfimage
