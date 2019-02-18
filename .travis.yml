@@ -6,6 +6,7 @@ addons:
       - libdw-dev
       - libiberty-dev
       - python3
+      - python3-pip
 
 language: bash
 
@@ -21,9 +22,7 @@ env:
     - PATH=${PATH}:${HOME}/kcov/bin
 
 before_install:
-- docker pull alpine:latest
-- wget -q --no-check-certificate https://bootstrap.pypa.io/get-pip.py
-- sudo -H python3 get-pip.py
+- docker pull alpine
 
 install:
 - sudo -H pip3 install -U docker docker-py codacy-coverage codecov pip
