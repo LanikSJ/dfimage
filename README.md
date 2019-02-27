@@ -1,5 +1,5 @@
 # Dockerfile From Image (dfimage)
-[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=LanikSJ/dfimage)](https://dependabot.com)[![Known Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg)](https://snyk.io/test/github/LanikSJ/dfimage)
+[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=LanikSJ/dfimage)](https://dependabot.com)[![Known Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=/docs/Gemfile.lock)](https://snyk.io/test/github/LanikSJ/dfimage)
 
 Reverse-engineers a Dockerfile from a Docker image.
 
