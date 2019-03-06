@@ -21,7 +21,7 @@ Since the script interacts with the Docker API in order to query the metadata fo
 Note that the script only works against images that exist in your local image repository (the stuff you see when you type `docker images`). If you want to generate a Dockerfile for an image that doesn't exist in your local repo you'll first need to `docker pull` it.
 
 ## Docker Example
-[![Docker Repository on Docker Hub](https://img.shields.io/docker/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)[![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)[![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)[![](https://images.microbadger.com/badges/image/laniksj/dfimage.svg)](https://microbadger.com/images/laniksj/dfimage "Get your own image badge on microbadger.com")
+[![Docker Repository on Docker Hub](https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)[![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)[![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)[![](https://images.microbadger.com/badges/image/laniksj/dfimage.svg)](https://microbadger.com/images/laniksj/dfimage "Get your own image badge on microbadger.com")
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
