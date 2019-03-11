@@ -116,4 +116,4 @@ If you want to extract a file from a container run this:
     docker run --rm --entrypoint cat imageName /path/to/file > filename
 
 ## License
-[![GPLv3 license](https://badgen.net/github/license/LanikSJ/dfimage)](http://perso.crans.org/besson/LICENSE.html)
+[![GPLv3 license](https://img.shields.io/github/license/LanikSJ/ubo-filters.svg?color=brightgreen)](http://perso.crans.org/besson/LICENSE.html)
