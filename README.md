@@ -124,3 +124,7 @@ If you want to extract a file from a container run this:
 
 ## License
 [![GPLv3 License](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+
+## Donate
+[![Patreon](https://img.shields.io/badge/patreon-donate-red.svg)](https://www.patreon.com/laniksj/overview)
+
