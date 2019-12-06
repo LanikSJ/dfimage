@@ -1,1 +1,1 @@
-docker-py
+docker-py==1.10.6
