@@ -123,7 +123,7 @@ If you want to extract a file from a container run this:
     docker run --rm --entrypoint cat imageName /path/to/file > filename
 
 ## License
-[![GPLv3 License](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://en.wikipedia.org/wiki/MIT_License)
 
 ## Donate
 [![Patreon](https://img.shields.io/badge/patreon-donate-red.svg)](https://www.patreon.com/laniksj/overview)
