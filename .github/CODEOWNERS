@@ -1,0 +1,19 @@
+# Lines starting with '#' are comments.
+# Each line is a file pattern followed by one or more owners.
+
+# IF YOU SUBMIT A PR AND ARE NOT SUGGESTED A CODE OWNER, PLEASE MAKE
+# AN ADDITION TO THIS FILE TO COVER THAT CASE!
+
+# The LAST matching pattern takes precedence.
+# If two or more patterns match a file, it is the LAST one that is used, NOT THE FIRST.
+# Reference: https://help.github.com/en/articles/about-code-owners
+
+# These owners will be the default owners for everything in the repo.
+*                             @LanikSJ
+
+# Below are the code owners who have volunteered their time on this project.
+# There's no expectation from anyone below.  This project is a volunteer effort.
+# If you'd like to contribute your time by all means, if not open a PR and we'll remove you.
+# This feature allows the PR creators to assign a review to the code owners.
+# If you're able to help great. If that's not something you're comfortable doing let @LanikSJ know.
+
