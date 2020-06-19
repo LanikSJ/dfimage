@@ -1,6 +1,18 @@
 # Dockerfile From Image (dfimage)
+
 [![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)
 [![Known Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=/docs/Gemfile.lock)](https://snyk.io/test/github/LanikSJ/dfimage?targetFile=/docs/Gemfile.lock)
+
+-   [Purpose](#purpose)
+-   [Usage](#usage)
+-   [Docker Example](#docker-example)
+-   [How Does It Work?](#how-does-it-work-)
+-   [Limitations](#limitations)
+-   [Extract](#extract)
+-   [License](#license)
+-   [Donate](#donate)
+
+## Purpose
 
 Reverse-engineers a Dockerfile from a Docker image.
 
@@ -9,6 +21,7 @@ See my [Inspiration](https://github.com/CenturyLinkLabs/dockerfile-from-image) a
 Similar to how the `docker history` command works, the Python script is able to re-create the Dockerfile ([approximately](#limitations)) that was used to generate an image using the metadata that Docker stores alongside each image layer.
 
 ## Usage
+
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b)](https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade_Dashboard)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/60355d4f69bd426689fa6917fc3b8409)](https://www.codacy.com/app/Lanik/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)
@@ -24,6 +37,7 @@ Since the script interacts with the Docker API in order to query the metadata fo
 Note that the script only works against images that exist in your local image repository (the stuff you see when you type `docker images`). If you want to generate a Dockerfile for an image that doesn't exist in your local repo you'll first need to `docker pull` it.
 
 ## Docker Example
+
 [![Docker Repository on Docker Hub](https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)
 [![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)
 [![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)
@@ -90,7 +104,6 @@ When an image is constructed from a Dockerfile, each instruction in the Dockerfi
 
 Each one of these layers is the result of executing an instruction in a Dockerfile. In fact, if you do a `docker inspect` on any one of these layers you can see the instruction that was used to generate that layer.
 
-
     $ docker inspect 011aa33ba92b
     [{
       . . .
@@ -103,9 +116,9 @@ Each one of these layers is the result of executing an instruction in a Dockerfi
         . . .
     }]
 
-The output above has been truncated, but nested within the *ContainerConfig* data you'll find the Dockerfile command that generated this layer (in this case it was an `ONBUILD` instruction).
+The output above has been truncated, but nested within the _ContainerConfig_ data you'll find the Dockerfile command that generated this layer (in this case it was an `ONBUILD` instruction).
 
-The *entrypoint.py* script works by simply walking backward through the layer tree and collecting the commands stored with each layer. When the script reaches the first tagged layer (or the root of the tree) it stops and displays the (reversed) list of commands. If you want to generate the commands going all the way back to the root image layer you can use the `-f` flag to walk the entire tree.
+The _entrypoint.py_ script works by simply walking backward through the layer tree and collecting the commands stored with each layer. When the script reaches the first tagged layer (or the root of the tree) it stops and displays the (reversed) list of commands. If you want to generate the commands going all the way back to the root image layer you can use the `-f` flag to walk the entire tree.
 
 ## Limitations
 
@@ -122,8 +135,9 @@ If you want to extract a file from a container run this:
     docker run --rm --entrypoint cat imageName /path/to/file > filename
 
 ## License
+
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://en.wikipedia.org/wiki/MIT_License)
 
 ## Donate
-[![Patreon](https://img.shields.io/badge/patreon-donate-red.svg)](https://www.patreon.com/laniksj/overview)
 
+[![Patreon](https://img.shields.io/badge/patreon-donate-red.svg)](https://www.patreon.com/laniksj/overview)
