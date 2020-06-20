@@ -9,11 +9,12 @@
 /test/tmp/
 /test/version_tmp/
 /tmp/
+.DS_Store
 
 # Used by dotenv library to load environment variables.
 # .env
 
-## Specific to RubyMotion:
+# Specific to RubyMotion:
 .dat*
 .repl_history
 build/
@@ -21,7 +22,7 @@ build/
 build-iPhoneOS/
 build-iPhoneSimulator/
 
-## Specific to RubyMotion (use of CocoaPods):
+# Specific to RubyMotion (use of CocoaPods):
 #
 # We recommend against adding the Pods directory to your .gitignore. However
 # you should judge for yourself, the pros and cons are mentioned at:
@@ -29,13 +30,13 @@ build-iPhoneSimulator/
 #
 # vendor/Pods/
 
-## Documentation cache and generated files:
+# Documentation cache and generated files:
 /.yardoc/
 /_yardoc/
 /doc/
 /rdoc/
 
-## Environment normalization:
+# Environment normalization:
 /.bundle/
 /vendor/bundle
 /lib/bundler/man/
