@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="dfimage : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>dfimage</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/LanikSJ">View on GitHub</a>
+
+          <h1 id="project_title">dfimage</h1>
+          <h2 id="project_tagline"></h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="dockerfile-from-image-dfimage" class="anchor" href="#dockerfile-from-image-dfimage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dockerfile From Image (dfimage)</h1>
+<p><a href="https://travis-ci.org/LanikSJ/dfimage"><img src="https://travis-ci.org/LanikSJ/dfimage.svg?branch=master" alt="Build Status"></a>
+<a href="https://snyk.io/test/github/LanikSJ/dfimage?targetFile=/docs/Gemfile.lock"><img src="https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=/docs/Gemfile.lock" alt="Ruby Vulnerabilities"></a></p>
+<ul>
+<li><a href="#purpose">Purpose</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#docker-example">Docker Example</a></li>
+<li><a href="#how-does-it-work-">How Does It Work?</a></li>
+<li><a href="#limitations">Limitations</a></li>
+<li><a href="#extract">Extract</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#donate">Donate</a></li>
+</ul>
+<h2>
+<a id="purpose" class="anchor" href="#purpose" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Purpose</h2>
+<p>Reverse-engineers a Dockerfile from a Docker image.</p>
+<p>See my <a href="https://github.com/CenturyLinkLabs/dockerfile-from-image">Inspiration</a> and <a href="https://hub.docker.com/r/chenzj/dfimage/">Container Source</a> for more information.</p>
+<p>Similar to how the <code>docker history</code> command works, the Python script is able to re-create the Dockerfile (<a href="#limitations">approximately</a>) that was used to generate an image using the metadata that Docker stores alongside each image layer.</p>
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+<p><a href="https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LanikSJ/dfimage&amp;utm_campaign=Badge_Grade_Dashboard"><img src="https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b" alt="Codacy Badge"></a>
+<a href="https://www.codacy.com/app/Lanik/dfimage?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LanikSJ/dfimage&amp;utm_campaign=Badge_Coverage"><img src="https://api.codacy.com/project/badge/Coverage/60355d4f69bd426689fa6917fc3b8409" alt="Codacy Badge"></a>
+<a href="https://codecov.io/gh/LanikSJ/dfimage"><img src="https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg" alt="codecov"></a>
+<a href="https://snyk.io/test/github/LanikSJ/dfimage?targetFile=requirements.txt"><img src="https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=requirements.txt" alt="Python Vulnerabilities"></a></p>
+<p>The Python script is itself packaged as a Docker image so it can easily be executed with the Docker <em>run</em> command:</p>
+<pre><code>docker run -v /var/run/docker.sock:/var/run/docker.sock dfimage imageID
+</code></pre>
+<p>The <code>imageID</code> parameter is the image ID (either the truncated form or the complete image ID).</p>
+<p>Since the script interacts with the Docker API in order to query the metadata for the various image layers it needs access to the Docker API socket.  The <code>-v</code> flag shown above makes the Docker socket available inside the container running the script.</p>
+<p>Note that the script only works against images that exist in your local image repository (the stuff you see when you type <code>docker images</code>). If you want to generate a Dockerfile for an image that doesn't exist in your local repo you'll first need to <code>docker pull</code> it.</p>
+<h2>
+<a id="docker-example" class="anchor" href="#docker-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker Example</h2>
+<p><a href="https://hub.docker.com/r/laniksj/dfimage"><img src="https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat" alt="Docker Repository on Docker Hub"></a>
+<a href="https://quay.io/repository/laniksj/dfimage"><img src="https://quay.io/repository/laniksj/dfimage/status" alt="Docker Repository on Quay" title="Docker Repository on Quay"></a>
+<a href="https://hub.docker.com/r/laniksj/dfimage"><img src="https://badgen.net/docker/pulls/laniksj/dfimage" alt="Docker Pulls"></a>
+<a href="https://microbadger.com/images/laniksj/dfimage" title="Get your own image badge on microbadger.com"><img src="https://images.microbadger.com/badges/image/laniksj/dfimage.svg" alt="Docker Layers"></a></p>
+<p>Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.</p>
+<pre><code>$ docker pull laniksj/dfimage
+Using default tag: latest
+latest: Pulling from dfimage
+
+$ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage"
+
+$ dfimage imageID
+FROM buildpack-deps:latest
+RUN useradd -g users user
+RUN apt-get update &amp;&amp; apt-get install -y bison procps
+RUN apt-get update &amp;&amp; apt-get install -y ruby
+ADD dir:03090a5fdc5feb8b4f1d6a69214c37b5f6d653f5185cddb6bf7fd71e6ded561c in /usr/src/ruby
+WORKDIR /usr/src/ruby
+RUN chown -R user:users .
+USER user
+RUN autoconf &amp;&amp; ./configure --disable-install-doc
+RUN make -j"$(nproc)"
+RUN make check
+USER root
+RUN apt-get purge -y ruby
+RUN make install
+RUN echo 'gem: --no-rdoc --no-ri' &gt;&gt; /.gemrc
+RUN gem install bundler
+ONBUILD ADD . /usr/src/app
+ONBUILD WORKDIR /usr/src/app
+ONBUILD RUN [ ! -e Gemfile ] || bundle install --system
+</code></pre>
+<h2>
+<a id="how-does-it-work" class="anchor" href="#how-does-it-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How Does It Work?</h2>
+<p>When an image is constructed from a Dockerfile, each instruction in the Dockerfile results in a new layer. You can see all of the image layers by using the <code>docker images</code> command with the (now deprecated) <code>--tree</code> flag.</p>
+<pre><code>$ docker images --tree
+Warning: '--tree' is deprecated, it will be removed soon. See usage.
+└─511136ea3c5a Virtual Size: 0 B Tags: scratch:latest
+  └─1e8abad02296 Virtual Size: 121.8 MB
+    └─f106b5d7508a Virtual Size: 121.8 MB
+      └─0ae4b97648db Virtual Size: 690.2 MB
+        └─a2df34bb17f4 Virtual Size: 808.3 MB Tags: buildpack-deps:latest
+          └─86258af941f7 Virtual Size: 808.6 MB
+            └─1dc22fbdefef Virtual Size: 846.7 MB
+              └─00227c86ea87 Virtual Size: 863.7 MB
+                └─564e6df9f1e2 Virtual Size: 1.009 GB
+                  └─55a2d383d743 Virtual Size: 1.009 GB
+                    └─367e535883e4 Virtual Size: 1.154 GB
+                      └─a47bb557ed2a Virtual Size: 1.154 GB
+                        └─0d4496202bc0 Virtual Size: 1.157 GB
+                          └─5db44b586412 Virtual Size: 1.446 GB
+                            └─bef6f00c8d6d Virtual Size: 1.451 GB
+                              └─5f9bee597a47 Virtual Size: 1.451 GB
+                                └─bb98b84e0658 Virtual Size: 1.452 GB
+                                  └─6556c531b6c1 Virtual Size: 1.552 GB
+                                    └─569e14fd7575 Virtual Size: 1.552 GB
+                                      └─fc3a205ba3de Virtual Size: 1.555 GB
+                                        └─5fd3b530d269 Virtual Size: 1.555 GB
+                                          └─6bdb3289ca8b Virtual Size: 1.555 GB
+                                            └─011aa33ba92b Virtual Size: 1.555 GB Tags: ruby:2, ruby:2.1, ruby:2.1.1, ruby:latest
+</code></pre>
+<p>Each one of these layers is the result of executing an instruction in a Dockerfile. In fact, if you do a <code>docker inspect</code> on any one of these layers you can see the instruction that was used to generate that layer.</p>
+<pre><code>$ docker inspect 011aa33ba92b
+[{
+  . . .
+  "ContainerConfig": {
+    "Cmd": [
+        "/bin/sh",
+        "-c",
+        "#(nop) ONBUILD RUN [ ! -e Gemfile ] || bundle install --system"
+    ],
+    . . .
+}]
+</code></pre>
+<p>The output above has been truncated, but nested within the <em>ContainerConfig</em> data you'll find the Dockerfile command that generated this layer (in this case it was an <code>ONBUILD</code> instruction).</p>
+<p>The <em>entrypoint.py</em> script works by simply walking backward through the layer tree and collecting the commands stored with each layer. When the script reaches the first tagged layer (or the root of the tree) it stops and displays the (reversed) list of commands. If you want to generate the commands going all the way back to the root image layer you can use the <code>-f</code> flag to walk the entire tree.</p>
+<h2>
+<a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Limitations</h2>
+<p>As the Python script walks the list of layers contained in the image it stops when it reaches the first tagged layer. It is assumed that a layer which has been tagged represents a distinct image with its own Dockerfile so the script will output a <code>FROM</code> directive with the tag name.</p>
+<p>In the example above, the <em>ruby</em> image contained a layer in the local image repository which had been tagged with <em>buildpack-deps</em> (though it wasn't shown in the example, this likely means that <em>buildpack-deps:latest</em> was also pulled at some point). If the <em>buildpack-deps</em> layer had not been tagged, the Python script would have continued outputting Dockerfile directives until it reached the root layer.</p>
+<p>Also note that the output generated by the script won't match exactly the original Dockerfile if either the <code>COPY</code> or <code>ADD</code> directives (like the example above) are used. Since we no longer have access to the build context that was present when the original <code>docker build</code> command was executed all we can see is that some directory or file was copied to the image's filesystem (you'll see the file/directory checksum and the destination it was copied to).</p>
+<h2>
+<a id="extract" class="anchor" href="#extract" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extract</h2>
+<p>If you want to extract a file from a container run this:</p>
+<pre><code>docker run --rm --entrypoint cat imageName /path/to/file &gt; filename
+</code></pre>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+<p><a href="https://en.wikipedia.org/wiki/MIT_License"><img src="https://img.shields.io/badge/license-MIT-blue" alt="MIT License"></a></p>
+<h2>
+<a id="donate" class="anchor" href="#donate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Donate</h2>
+<p><a href="https://www.patreon.com/laniksj/overview"><img src="https://img.shields.io/badge/patreon-donate-red.svg" alt="Patreon"></a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
