@@ -1,7 +1,7 @@
 # Dockerfile From Image (dfimage)
 
 [![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)
-[![Ruby Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=/docs/Gemfile.lock)](https://snyk.io/test/github/LanikSJ/dfimage?targetFile=/docs/Gemfile.lock)
+[![Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/LanikSJ/dfimage?targetFile=requirements.txt)
 
 -   [Purpose](#purpose)
 -   [Usage](#usage)
@@ -25,7 +25,6 @@ Similar to how the `docker history` command works, the Python script is able to 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b)](https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade_Dashboard)
 [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/60355d4f69bd426689fa6917fc3b8409)](https://www.codacy.com/app/Lanik/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)
-[![Python Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/LanikSJ/dfimage?targetFile=requirements.txt)
 
 The Python script is itself packaged as a Docker image so it can easily be executed with the Docker _run_ command:
 
