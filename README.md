@@ -40,8 +40,9 @@ Note that the script only works against images that exist in your local image re
 
 [![Docker Repository on Docker Hub](https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)
 [![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)
-[![Docker Pulls](https://badgen.net/docker/pulls/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)
-[![Docker Layers](https://images.microbadger.com/badges/image/laniksj/dfimage.svg)](https://microbadger.com/images/laniksj/dfimage "Get your own image badge on microbadger.com")
+![Docker Pulls](https://img.shields.io/docker/pulls/laniksj/dfimage.svg?style=flat)
+![Docker Size](https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date)
+![Docker Layers](https://img.shields.io/microbadger/layers/laniksj/dfimage)
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
