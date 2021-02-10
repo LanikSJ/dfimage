@@ -55,3 +55,7 @@ build-iPhoneSimulator/
 
 # pycharm
 .idea
+
+# Coverage
+.coverage
+coverage.xml

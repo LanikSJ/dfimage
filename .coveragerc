@@ -1,0 +1,3 @@
+[run]
+include = entrypoint.py
+omit = docs
