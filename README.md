@@ -1,6 +1,6 @@
 # Dockerfile From Image (dfimage)
 
-[![Actions Status](https://github.com/LanikSJ/awscli-aliases/workflows/CI/badge.svg)](https://github.com/LanikSJ/awscli-aliases/actions)
+[![Actions Status](https://github.com/LanikSJ/dfimage/workflows/CI/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
 [![Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/LanikSJ/dfimage?targetFile=requirements.txt)
 
 -   [Purpose](#purpose)
