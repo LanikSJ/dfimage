@@ -11,20 +11,6 @@ updates:
   - LanikSJ
   assignees:
   - LanikSJ
-- package-ecosystem: bundler
-  directory: "/docs"
-  schedule:
-    interval: daily
-    time: '08:00'
-    timezone: America/Los_Angeles
-  open-pull-requests-limit: 99
-  reviewers:
-  - LanikSJ
-  assignees:
-  - LanikSJ
-  allow:
-  - dependency-type: direct
-  - dependency-type: indirect
 - package-ecosystem: docker
   directory: "/"
   schedule:
