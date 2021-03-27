@@ -1,8 +1,5 @@
 # Dockerfile From Image (dfimage)
 
-[![Build Status](https://travis-ci.org/LanikSJ/dfimage.svg?branch=master)](https://travis-ci.org/LanikSJ/dfimage)
-[![Vulnerabilities](https://snyk.io/test/github/LanikSJ/dfimage/badge.svg?targetFile=requirements.txt)](https://snyk.io/test/github/LanikSJ/dfimage?targetFile=requirements.txt)
-
 -   [Purpose](#purpose)
 -   [Usage](#usage)
 -   [Docker Example](#docker-example)
