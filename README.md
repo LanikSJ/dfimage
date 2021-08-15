@@ -3,7 +3,7 @@
 -   [Purpose](#purpose)
 -   [Usage](#usage)
 -   [Docker Example](#docker-example)
--   [How Does It Work?](#how-does-it-work-)
+-   [How Does It Work](#how-does-it-work)
 -   [Limitations](#limitations)
 -   [Extract](#extract)
 -   [License](#license)
@@ -35,17 +35,18 @@ Note that the script only works against images that exist in your local image re
 ## Docker Example
 
 [![Docker Hub](https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)
+[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)
 [![Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)
 ![Docker Pulls](https://img.shields.io/docker/pulls/laniksj/dfimage.svg?style=flat)
 ![Docker Size](https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date)
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
-    $ docker pull laniksj/dfimage
+    $ docker pull quay.io/laniksj/dfimage
     Using default tag: latest
     latest: Pulling from dfimage
 
-    $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage"
+    $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm quay.io/laniksj/dfimage"
 
     $ dfimage imageID
     FROM buildpack-deps:latest
@@ -68,7 +69,7 @@ Here's an example that shows the official Docker ruby image being pulled and the
     ONBUILD WORKDIR /usr/src/app
     ONBUILD RUN [ ! -e Gemfile ] || bundle install --system
 
-## How Does It Work?
+## How Does It Work
 
 When an image is constructed from a Dockerfile, each instruction in the Dockerfile results in a new layer. You can see all of the image layers by using the `docker images` command with the (now deprecated) `--tree` flag.
 
