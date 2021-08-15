@@ -20,7 +20,6 @@ Similar to how the `docker history` command works, the Python script is able to 
 ## Usage
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b)](https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade_Dashboard)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/60355d4f69bd426689fa6917fc3b8409)](https://www.codacy.com/app/Lanik/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Coverage)
 [![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)
 
 The Python script is itself packaged as a Docker image so it can easily be executed with the Docker _run_ command:
@@ -35,11 +34,10 @@ Note that the script only works against images that exist in your local image re
 
 ## Docker Example
 
-[![Docker Repository on Docker Hub](https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)
-[![Docker Repository on Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)
+[![Docker Hub](https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)
+[![Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)
 ![Docker Pulls](https://img.shields.io/docker/pulls/laniksj/dfimage.svg?style=flat)
 ![Docker Size](https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date)
-![Docker Layers](https://img.shields.io/microbadger/layers/laniksj/dfimage)
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
