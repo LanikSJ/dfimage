@@ -1,5 +1,7 @@
 # Dockerfile From Image (dfimage)
 
+[![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
+
 -   [Purpose](#purpose)
 -   [Usage](#usage)
 -   [Docker Example](#docker-example)
