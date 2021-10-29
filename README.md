@@ -1,7 +1,5 @@
 # Dockerfile From Image (dfimage)
 
-[![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Image%20CI/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
-
 -   [Purpose](#purpose)
 -   [Usage](#usage)
 -   [Docker Example](#docker-example)
@@ -26,9 +24,9 @@ Similar to how the `docker history` command works, the Python script is able to 
 
 The Python script is itself packaged as a Docker image so it can easily be executed with the Docker _run_ command:
 
-    docker run -v /var/run/docker.sock:/var/run/docker.sock dfimage imageID
+    docker run -v /var/run/docker.sock:/var/run/docker.sock dfimage ruby:latest
 
-The `imageID` parameter is the image ID (either the truncated form or the complete image ID).
+The `ruby:latest` parameter is the image name & tag (either the truncated form or the complete image name & tag).
 
 Since the script interacts with the Docker API in order to query the metadata for the various image layers it needs access to the Docker API socket.  The `-v` flag shown above makes the Docker socket available inside the container running the script.
 
@@ -36,8 +34,7 @@ Note that the script only works against images that exist in your local image re
 
 ## Docker Example
 
-[![Docker Hub](https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat)](https://hub.docker.com/r/laniksj/dfimage)
-[![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/laniksj/dfimage)](https://hub.docker.com/r/laniksj/dfimage)
+[![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
 [![Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)
 ![Docker Pulls](https://img.shields.io/docker/pulls/laniksj/dfimage.svg?style=flat)
 ![Docker Size](https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date)
@@ -50,7 +47,7 @@ Here's an example that shows the official Docker ruby image being pulled and the
 
     $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm quay.io/laniksj/dfimage"
 
-    $ dfimage imageID
+    $ dfimage ruby:latest
     FROM buildpack-deps:latest
     RUN useradd -g users user
     RUN apt-get update && apt-get install -y bison procps

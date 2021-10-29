@@ -28,7 +28,6 @@
   <!-- MAIN CONTENT -->
   <div id="main_content_wrap" class="outer">
     <section id="main_content" class="inner">
-      <p><a href="https://github.com/LanikSJ/dfimage/actions"><img src="https://github.com/LanikSJ/dfimage/workflows/Docker%20Image%20CI/badge.svg" alt="Docker Image CI"></a></p>
       <ul>
         <li><a href="#purpose">Purpose</a></li>
         <li><a href="#usage">Usage</a></li>
@@ -51,16 +50,16 @@
             src="https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b" alt="Codacy Badge"></a>
         <a href="https://codecov.io/gh/LanikSJ/dfimage"><img src="https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg" alt="codecov"></a></p>
       <p>The Python script is itself packaged as a Docker image so it can easily be executed with the Docker <em>run</em> command:</p>
-      <pre><code>docker run -v /var/run/docker.sock:/var/run/docker.sock dfimage imageID
+      <pre><code>docker run -v /var/run/docker.sock:/var/run/docker.sock dfimage ruby:latest
 </code></pre>
-      <p>The <code>imageID</code> parameter is the image ID (either the truncated form or the complete image ID).</p>
+      <p>The <code>ruby:latest</code> parameter is the image name & tag (either the truncated form or the complete image name & tag).</p>
       <p>Since the script interacts with the Docker API in order to query the metadata for the various image layers it needs access to the Docker API socket. The <code>-v</code> flag shown above makes the Docker socket available inside the container
         running the script.</p>
       <p>Note that the script only works against images that exist in your local image repository (the stuff you see when you type <code>docker images</code>). If you want to generate a Dockerfile for an image that doesn't exist in your local repo
         you'll first need to <code>docker pull</code> it.</p>
       <h2>
         <a id="docker-example" class="anchor" href="#docker-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker Example</h2>
-      <p><a href="https://hub.docker.com/r/laniksj/dfimage"><img src="https://img.shields.io/docker/cloud/automated/laniksj/dfimage.svg?style=flat" alt="Docker Repository on Docker Hub"></a>
+        <p><a href="https://github.com/LanikSJ/dfimage/actions"><img src="https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg">
         <a href="https://quay.io/repository/laniksj/dfimage"><img src="https://quay.io/repository/laniksj/dfimage/status" alt="Docker Repository on Quay" title="Docker Repository on Quay"></a>
         <a href="https://hub.docker.com/r/laniksj/dfimage"><img src="https://badgen.net/docker/pulls/laniksj/dfimage" alt="Docker Pulls"></a>
         <img src="https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date" alt=""></p>
@@ -71,7 +70,7 @@ latest: Pulling from dfimage
 
 $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage"
 
-$ dfimage imageID
+$ dfimage ruby:latest
 FROM buildpack-deps:latest
 RUN useradd -g users user
 RUN apt-get update &amp;&amp; apt-get install -y bison procps
