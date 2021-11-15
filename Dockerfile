@@ -1,4 +1,4 @@
-FROM alpine:3.14.2
+FROM alpine:3.14.3
 
 RUN apk --no-cache update && apk add --no-cache python3 wget \
     && wget -q --no-check-certificate https://bootstrap.pypa.io/get-pip.py \
