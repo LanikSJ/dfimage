@@ -11,6 +11,7 @@ permissions:
 
 concurrency:
   group: lock
+  cancel-in-progress: true
 
 jobs:
   action:
