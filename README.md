@@ -1,7 +1,7 @@
 # Dockerfile From Image (dfimage)
 
 -   [Purpose](#purpose)
--   [Usage](#usage)
+-   [Usage](#usage)ghcr.io/laniksj
 -   [Docker Example](#docker-example)
 -   [How Does It Work](#how-does-it-work)
 -   [Limitations](#limitations)
@@ -41,11 +41,11 @@ Note that the script only works against images that exist in your local image re
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
-    $ docker pull quay.io/laniksj/dfimage
+    $ docker pull ghcr.io/laniksj/dfimage
     Using default tag: latest
     latest: Pulling from dfimage
 
-    $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm quay.io/laniksj/dfimage"
+    $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ghcr.io/laniksj/dfimage"
 
     $ dfimage ruby:latest
     FROM buildpack-deps:latest

@@ -64,11 +64,11 @@
         <a href="https://hub.docker.com/r/laniksj/dfimage"><img src="https://badgen.net/docker/pulls/laniksj/dfimage" alt="Docker Pulls"></a>
         <img src="https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date" alt=""></p>
       <p>Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.</p>
-      <pre><code>$ docker pull laniksj/dfimage
+      <pre><code>$ docker pull ghcr.io/laniksj/dfimage
 Using default tag: latest
 latest: Pulling from dfimage
 
-$ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm laniksj/dfimage"
+$ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ghcr.io/laniksj/dfimage"
 
 $ dfimage ruby:latest
 FROM buildpack-deps:latest
