@@ -1,7 +1,7 @@
 # Dockerfile From Image (dfimage)
 
 -   [Purpose](#purpose)
--   [Usage](#usage)ghcr.io/laniksj
+-   [Usage](#usage)
 -   [Docker Example](#docker-example)
 -   [How Does It Work](#how-does-it-work)
 -   [Limitations](#limitations)
