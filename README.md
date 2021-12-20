@@ -18,8 +18,7 @@ See my [Inspiration](https://github.com/CenturyLinkLabs/dockerfile-from-image) a
 Similar to how the `docker history` command works, the Python script is able to re-create the Dockerfile ([approximately](#limitations)) that was used to generate an image using the metadata that Docker stores alongside each image layer.
 
 ## Usage
-
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5bc4537290504435bce6a3e3ed83101b)](https://app.codacy.com/app/LanikSJ/dfimage?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e49393ee816646f28044e4d4f386f5ac)](https://www.codacy.com/gh/LanikSJ/dfimage/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LanikSJ/dfimage&amp;utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)
 
 The Python script is itself packaged as a Docker image so it can easily be executed with the Docker _run_ command:
