@@ -4,7 +4,7 @@
 
 |    OS   | Version  |     Supported      |
 | ------- | -------- | ------------------ |
-| Alpine  | 3.12.x   | :white_check_mark: |
+| Alpine  | 3.15.x   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
