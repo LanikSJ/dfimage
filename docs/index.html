@@ -59,14 +59,20 @@
         you'll first need to <code>docker pull</code> it.</p>
       <h2>
         <a id="docker-example" class="anchor" href="#docker-example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Docker Example</h2>
-        <p><a href="https://github.com/LanikSJ/dfimage/actions"><img src="https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg">
-        <a href="https://quay.io/repository/laniksj/dfimage"><img src="https://quay.io/repository/laniksj/dfimage/status" alt="Docker Repository on Quay" title="Docker Repository on Quay"></a>
-        <a href="https://hub.docker.com/r/laniksj/dfimage"><img src="https://badgen.net/docker/pulls/laniksj/dfimage" alt="Docker Pulls"></a>
-        <img src="https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date" alt=""></p>
+      <p><a href="https://github.com/LanikSJ/dfimage/actions"><img src="https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg">
+          <a href="https://hub.docker.com/r/laniksj/dfimage"><img src="https://badgen.net/docker/pulls/laniksj/dfimage" alt="Docker Pulls"></a>
+          <img src="https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date" alt=""></p>
       <p>Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.</p>
-      <pre><code>$ docker pull ghcr.io/laniksj/dfimage
+      <pre><code>$ docker pull ruby:latest
+latest: Pulling from library/ruby
+...
+Status: Downloaded newer image for ruby:latest
+
+$ docker pull ghcr.io/laniksj/dfimage
 Using default tag: latest
 latest: Pulling from dfimage
+...
+Status: Downloaded newer image for dfimage:latest
 
 $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ghcr.io/laniksj/dfimage"
 
@@ -90,7 +96,7 @@ RUN gem install bundler
 ONBUILD ADD . /usr/src/app
 ONBUILD WORKDIR /usr/src/app
 ONBUILD RUN [ ! -e Gemfile ] || bundle install --system
-</code></pre>
+      </code></pre>
       <h2>
         <a id="how-does-it-work" class="anchor" href="#how-does-it-work" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How Does It Work?</h2>
       <p>When an image is constructed from a Dockerfile, each instruction in the Dockerfile results in a new layer. You can see all of the image layers by using the <code>docker images</code> command with the (now deprecated) <code>--tree</code>

@@ -34,15 +34,21 @@ Note that the script only works against images that exist in your local image re
 ## Docker Example
 
 [![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
-[![Quay](https://quay.io/repository/laniksj/dfimage/status "Docker Repository on Quay")](https://quay.io/repository/laniksj/dfimage)
 ![Docker Pulls](https://img.shields.io/docker/pulls/laniksj/dfimage.svg?style=flat)
 ![Docker Size](https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date)
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
+    $ docker pull ruby:latest
+    latest: Pulling from library/ruby
+    ...
+    Status: Downloaded newer image for ruby:latest
+
     $ docker pull ghcr.io/laniksj/dfimage
     Using default tag: latest
     latest: Pulling from dfimage
+    ...
+    Status: Downloaded newer image for dfimage:latest
 
     $ alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ghcr.io/laniksj/dfimage"
 
