@@ -29,7 +29,8 @@ class MainObj:
             if repo_tag in i['RepoTags']:
                 self.img = i
                 return
-        raise ImageNotFound("Image {} not found\n".format(repo_tag))
+        raise ImageNotFound(f'Image {repo_tag} Not Found! '
+                            f'Please Make Sure You Run docker pull {repo_tag} Beforehand.\n')
 
     def _insert_step(self, step):
         if "#(nop)" in step:
