@@ -1,5 +1,10 @@
 # Dockerfile From Image (dfimage)
 
+![GitHub Repo Size](https://img.shields.io/github/repo-size/laniksj/dfimage)
+![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/laniksj/dfimage)
+![GitHub Last Commit](https://img.shields.io/github/last-commit/laniksj/dfimage)
+![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/laniksj/dfimage)
+
 -   [Purpose](#purpose)
 -   [Usage](#usage)
 -   [Docker Example](#docker-example)
@@ -18,7 +23,8 @@ See my [Inspiration](https://github.com/CenturyLinkLabs/dockerfile-from-image) a
 Similar to how the `docker history` command works, the Python script is able to re-create the Dockerfile ([approximately](#limitations)) that was used to generate an image using the metadata that Docker stores alongside each image layer.
 
 ## Usage
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e49393ee816646f28044e4d4f386f5ac)](https://www.codacy.com/gh/LanikSJ/dfimage/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LanikSJ/dfimage&amp;utm_campaign=Badge_Grade)
+
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e49393ee816646f28044e4d4f386f5ac)](https://www.codacy.com/gh/LanikSJ/dfimage/dashboard?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)
 
 The Python script is itself packaged as a Docker image so it can easily be executed with the Docker _run_ command:
@@ -34,8 +40,6 @@ Note that the script only works against images that exist in your local image re
 ## Docker Example
 
 [![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
-![Docker Pulls](https://img.shields.io/docker/pulls/laniksj/dfimage.svg?style=flat)
-![Docker Size](https://img.shields.io/docker/image-size/laniksj/dfimage?sort=date)
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
 
