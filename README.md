@@ -41,7 +41,7 @@ Note that the script only works against images that exist in your local image re
 
 [![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
 
-Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated.
+Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image being generated. Note: A docker tag is required for correct functionality.
 
     $ docker pull ruby:latest
     latest: Pulling from library/ruby
