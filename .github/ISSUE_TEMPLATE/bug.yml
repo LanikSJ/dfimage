@@ -14,7 +14,7 @@ body:
     validations:
       required: true
   - type: textarea
-    id: homebrew-config
+    id: docker-config
     attributes:
       label: "Docker Config"
       description: Please provide your Docker version
