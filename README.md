@@ -5,14 +5,14 @@
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/laniksj/dfimage)
 ![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/laniksj/dfimage)
 
--   [Purpose](#purpose)
--   [Usage](#usage)
--   [Docker Example](#docker-example)
--   [How Does It Work](#how-does-it-work)
--   [Limitations](#limitations)
--   [Extract](#extract)
--   [License](#license)
--   [Donate](#donate)
+- [Purpose](#purpose)
+- [Usage](#usage)
+- [Docker Example](#docker-example)
+- [How Does It Work](#how-does-it-work)
+- [Limitations](#limitations)
+- [Extract](#extract)
+- [License](#license)
+- [Donate](#donate)
 
 ## Purpose
 
@@ -33,7 +33,7 @@ The Python script is itself packaged as a Docker image so it can easily be execu
 
 The `ruby:latest` parameter is the image name & tag (either the truncated form or the complete image name & tag).
 
-Since the script interacts with the Docker API in order to query the metadata for the various image layers it needs access to the Docker API socket.  The `-v` flag shown above makes the Docker socket available inside the container running the script.
+Since the script interacts with the Docker API in order to query the metadata for the various image layers it needs access to the Docker API socket. The `-v` flag shown above makes the Docker socket available inside the container running the script.
 
 Note that the script only works against images that exist in your local image repository (the stuff you see when you type `docker images`). If you want to generate a Dockerfile for an image that doesn't exist in your local repo you'll first need to `docker pull` it.
 
