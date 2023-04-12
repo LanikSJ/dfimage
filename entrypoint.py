@@ -23,9 +23,14 @@ class MainObj:
         for i in self.commands:
             print(i)
 
-    def _get_image(self, repo_tag):
+    def _get_image(self, repo_tag_or_id):
+        repo_tag = repo_tag_or_id if ':' in repo_tag_or_id else f"{repo_tag_or_id}:latest"
+        image_id = repo_tag_or_id.lower()
         images = self.cli.images()
         for i in images:
+            if i['Id'].split(':')[1].lower().startswith(image_id):
+                self.img = i
+                return
             rt = i['RepoTags']
             if rt and repo_tag in rt:
                 self.img = i
