@@ -26,7 +26,8 @@ class MainObj:
     def _get_image(self, repo_tag):
         images = self.cli.images()
         for i in images:
-            if repo_tag in i['RepoTags']:
+            rt = i['RepoTags']
+            if rt and repo_tag in rt:
                 self.img = i
                 return
         raise ImageNotFound(f'Image {repo_tag} Not Found! '
