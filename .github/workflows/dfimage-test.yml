@@ -28,7 +28,7 @@ jobs:
         with:
           context: .
           load: true
-          tags: ${{ env.LATEST_TAG }}
+          tags: ${{ env.TEST_TAG }}
       -
         name: Test
         run: |
