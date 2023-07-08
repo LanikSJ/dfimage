@@ -1,0 +1,35 @@
+name: dfimage Self Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  TEST_TAG: laniksj/dfimage:test
+  LATEST_TAG: laniksj/dfimage:latest
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and export to Docker
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          load: true
+          tags: ${{ env.LATEST_TAG }}
+      -
+        name: Test
+        run: |
+          docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ${{ env.TEST_TAG }}
