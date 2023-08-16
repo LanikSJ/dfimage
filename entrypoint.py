@@ -6,6 +6,7 @@ from docker import client
 
 class ImageNotFound(Exception):
     """ """
+
     pass
 
 
@@ -65,7 +66,7 @@ class MainObj:
     def _parse_history(self, rec=False):
         """
 
-        :param rec:  (Default value = False)
+        :param rec: Default value = False)
 
         """
         first_tag = False
