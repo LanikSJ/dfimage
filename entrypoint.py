@@ -11,6 +11,7 @@ class ImageNotFound(Exception):
 
 class MainObj:
     """ """
+
     def __init__(self):
         super(MainObj, self).__init__()
         self.commands = []
@@ -32,9 +33,8 @@ class MainObj:
         :param repo_tag_or_id:
 
         """
-        repo_tag = (
-            repo_tag_or_id if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest"
-        )
+        repo_tag = (repo_tag_or_id
+                    if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest")
         image_id = repo_tag_or_id.lower()
         images = self.cli.api.images()
         for i in images:
@@ -47,8 +47,7 @@ class MainObj:
                 return
         raise ImageNotFound(
             f"Image {repo_tag} Not Found! "
-            f"Please Make Sure You Run docker pull {repo_tag} Beforehand.\n"
-        )
+            f"Please Make Sure You Run docker pull {repo_tag} Beforehand.\n")
 
     def _insert_step(self, step):
         """
