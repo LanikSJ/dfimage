@@ -31,7 +31,7 @@ class MainObj:
     def _get_image(self, repo_tag_or_id):
         """
 
-        :param repo_tag_or_id:
+        :param repo_tag_or_id: 
 
         """
         repo_tag = (
@@ -55,7 +55,7 @@ class MainObj:
     def _insert_step(self, step):
         """
 
-        :param step:
+        :param step: 
 
         """
         if "#(nop)" in step:
@@ -68,7 +68,7 @@ class MainObj:
     def _parse_history(self, rec=False):
         """
 
-        :param rec:  (Default value = False)
+        :param rec: Default value = False)
 
         """
         first_tag = False
