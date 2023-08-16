@@ -2,8 +2,6 @@
 from sys import argv
 
 from docker import client
-
-
 class ImageNotFound(Exception):
     pass
 
@@ -13,9 +11,9 @@ class MainObj:
     def __init__(self):
         super(MainObj, self).__init__()
         self.commands = []
-        self.cli = client(base_url="unix://var/run/docker.sock")
+        self.cli = client.DockerClient(base_url="unix:///var/run/docker.sock")
         self._get_image(argv[-1])
-        self.hist = self.cli.history(self.img["RepoTags"][0])
+        self.hist = self.cli.api.history(self.img["RepoTags"][0])
         self._parse_history()
         self.commands.reverse()
         self._print_commands()
@@ -28,7 +26,7 @@ class MainObj:
         repo_tag = (repo_tag_or_id
                     if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest")
         image_id = repo_tag_or_id.lower()
-        images = self.cli.images()
+        images = self.cli.api.images()
         for i in images:
             if i["Id"].split(":")[1].lower().startswith(image_id):
                 self.img = i
