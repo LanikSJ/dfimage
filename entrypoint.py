@@ -2,11 +2,15 @@
 from sys import argv
 
 from docker import client
+
+
 class ImageNotFound(Exception):
+    """ """
     pass
 
 
 class MainObj:
+    """ """
 
     def __init__(self):
         super(MainObj, self).__init__()
@@ -19,10 +23,16 @@ class MainObj:
         self._print_commands()
 
     def _print_commands(self):
+        """ """
         for i in self.commands:
             print(i)
 
     def _get_image(self, repo_tag_or_id):
+        """
+
+        :param repo_tag_or_id:
+
+        """
         repo_tag = (repo_tag_or_id
                     if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest")
         image_id = repo_tag_or_id.lower()
@@ -40,6 +50,11 @@ class MainObj:
             f"Please Make Sure You Run docker pull {repo_tag} Beforehand.\n")
 
     def _insert_step(self, step):
+        """
+
+        :param step:
+
+        """
         if "#(nop)" in step:
             to_add = step.split("#(nop) ")[1]
         else:
@@ -48,6 +63,11 @@ class MainObj:
         self.commands.append(to_add.strip(" "))
 
     def _parse_history(self, rec=False):
+        """
+
+        :param rec:  (Default value = False)
+
+        """
         first_tag = False
         actual_tag = False
         for i in self.hist:
