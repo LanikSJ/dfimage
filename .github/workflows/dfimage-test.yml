@@ -32,4 +32,4 @@ jobs:
       -
         name: Test Docker Container
         run: |
-          docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ${{ env.TEST_TAG }} alpine:latest
+          docker pull alpine:latest && docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ${{ env.TEST_TAG }} alpine:latest
