@@ -10,6 +10,6 @@ RUN apk --no-cache update && apk add --no-cache python3 wget \
     && pip install -U pip && pip install -r requirements.txt \
     && rm -f requirements.txt && yes | pip uninstall pip
 
-ENTRYPOINT ["/root/entrypoint.py"]
+ENTRYPOINT ["python", "/root/entrypoint.py"]
 
 CMD ["/bin/sh"]
