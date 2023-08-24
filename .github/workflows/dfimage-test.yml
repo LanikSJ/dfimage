@@ -11,7 +11,7 @@ env:
   LATEST_TAG: laniksj/dfimage:latest
 
 jobs:
-  docker:
+  dfimage-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
