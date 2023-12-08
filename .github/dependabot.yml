@@ -6,7 +6,6 @@ updates:
       interval: "daily"
       time: '08:00'
       timezone: America/Los_Angeles
-    open-pull-requests-limit: 99
     reviewers:
     - LanikSJ
     assignees:
@@ -17,7 +16,6 @@ updates:
       interval: daily
       time: '08:00'
       timezone: America/Los_Angeles
-    open-pull-requests-limit: 99
     reviewers:
     - LanikSJ
     assignees:
@@ -28,7 +26,6 @@ updates:
       interval: weekly
       time: '08:00'
       timezone: America/Los_Angeles
-    open-pull-requests-limit: 99
     reviewers:
       - LanikSJ
     assignees:
