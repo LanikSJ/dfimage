@@ -1,15 +1,24 @@
-FROM alpine:3.18.5
+FROM alpine:3.19.0
 
 COPY entrypoint.py /root/entrypoint.py
 
+COPY entrypoint.sh /root/entrypoint.sh
+
 COPY requirements.txt requirements.txt
 
-RUN apk --no-cache update && apk add --no-cache python3 wget \
-    && wget -q --no-check-certificate https://bootstrap.pypa.io/get-pip.py \
-    && apk del wget && python3 get-pip.py && rm -f get-pip.py \
-    && pip install -U pip && pip install -r requirements.txt \
-    && rm -f requirements.txt && yes | pip uninstall pip
+RUN apk add --no-cache --update \
+        python3 \
+        pipx \
+        bash
 
-ENTRYPOINT ["python", "/root/entrypoint.py"]
+RUN python3 -m pipx ensurepath
 
-CMD ["/bin/sh"]
+RUN PATH="$PATH:/root/.local/bin" && pipx install pip \
+    && pipx upgrade-all && pipx install cookiecutter \
+    && pipx runpip cookiecutter install -r requirements.txt
+
+RUN rm -rf ~/.cache/* /usr/local/share/man /tmp/* requirements.txt
+
+ENTRYPOINT ["/root/entrypoint.sh"]
+
+CMD ["/bin/bash"]
