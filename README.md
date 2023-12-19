@@ -2,7 +2,6 @@
 
 ![GitHub Repo Size](https://img.shields.io/github/repo-size/laniksj/dfimage)
 ![GitHub Code Size in Bytes](https://img.shields.io/github/languages/code-size/laniksj/dfimage)
-![GitHub Dependency Status](https://img.shields.io/librariesio/github/laniksj/dfimage)
 ![GitHub Last Commit](https://img.shields.io/github/last-commit/laniksj/dfimage)
 ![GitHub Commit Activity](https://img.shields.io/github/commit-activity/m/laniksj/dfimage)
 
