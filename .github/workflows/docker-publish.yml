@@ -9,6 +9,10 @@ on:
       - requirements.txt
   pull_request:
     branches: [ master ]
+    paths:
+      - Dockerfile
+      - entrypoint.*
+      - requirements.txt
 
 env:
   REGISTRY: ghcr.io
