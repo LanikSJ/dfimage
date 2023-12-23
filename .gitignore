@@ -55,3 +55,6 @@ build-iPhoneSimulator/
 
 # pycharm
 .idea
+
+# vscode
+.vscode
