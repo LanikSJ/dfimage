@@ -117,4 +117,5 @@ class MainObj:
                     self.from_img = self.layers_with_images[layer_id]
                     break
 
+
 __main__ = MainObj()
