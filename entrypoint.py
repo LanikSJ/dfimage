@@ -103,6 +103,8 @@ class MainObj:
 
         if self.from_img:
             self.commands.append("FROM {}".format(self.from_img))
+        else:
+            self.commands.append("FROM <base image not found locally>")
 
     def _get_from_img(self):
         """ """
@@ -114,6 +116,9 @@ class MainObj:
         if layers:
             for layer_id in layers:
                 if layer_id in self.layers_with_images:
+                    possible_from_img = self.layers_with_images[layer_id]
+                    if possible_from_img == self.img["RepoTags"][0]:
+                        continue
                     self.from_img = self.layers_with_images[layer_id]
                     break
 
