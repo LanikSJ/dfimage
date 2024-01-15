@@ -1,5 +1,5 @@
 ---
-title: Dockerfile From Image (dfimage)
+title: Dockerfile From Image
 description: Reverse-engineers a Dockerfile from a Docker Image
 show_downloads: true
 google_analytics:
