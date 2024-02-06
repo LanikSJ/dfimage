@@ -6,14 +6,13 @@ COPY entrypoint.sh /app/entrypoint.sh
 
 COPY requirements.txt /app/requirements.txt
 
-RUN apk add --no-cache --update \
-        python3 \
-        py3-pip \
-        bash
+RUN apk add --no-cache --update bash jq python3
 
 RUN python3 -m venv /app
 
-RUN source /app/bin/activate && pip install -U pip \
+RUN source /app/bin/activate && python3 -m ensurepip --default-pip \
+    && for i in $(pip list --outdated --format=json |jq -r '.[].name' ) \
+    ; do pip install -U $i; done \
     && pip install -r /app/requirements.txt \
     && yes | pip uninstall pip
 
