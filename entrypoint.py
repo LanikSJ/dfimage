@@ -79,7 +79,7 @@ class MainObj:
         if "#(nop)" in step:
             to_add = step.split("#(nop) ")[1]
         else:
-            to_add = "RUN {}".format(step)
+            to_add = "{}".format(step)
         to_add = to_add.replace("&&", "\\\n    &&")
         self.commands.append(to_add.strip(" "))
 
