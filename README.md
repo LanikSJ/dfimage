@@ -160,12 +160,6 @@ context that was present when the original `docker build` command was executed a
 directory or file was copied to the image's filesystem (you'll see the file/directory checksum and the
 destination it was copied to).
 
-## Extract
-
-If you want to extract a file from a container run this:
-
-    docker run --rm --entrypoint cat imageName /path/to/file > filename
-
 ## License
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://en.wikipedia.org/wiki/MIT_License)
