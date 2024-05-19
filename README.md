@@ -46,6 +46,8 @@ Note that the script only works against images that exist in your local image re
 when you type `docker images`). If you want to generate a Dockerfile for an image that doesn't exist in your
 local repo you'll first need to `docker pull` it.
 
+You can find more usage examples in the [Wiki](https://github.com/LanikSJ/dfimage/wiki).
+
 ## Docker Example
 
 [![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
