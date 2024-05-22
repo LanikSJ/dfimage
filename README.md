@@ -50,7 +50,8 @@ You can find more usage examples in the [Wiki](https://github.com/LanikSJ/dfimag
 
 ## Docker Example
 
-[![Actions Status](https://github.com/LanikSJ/dfimage/workflows/Docker%20Publish/badge.svg)](https://github.com/LanikSJ/dfimage/actions)
+[![docker-publish](https://github.com/LanikSJ/dfimage/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/LanikSJ/dfimage/actions/workflows/docker-publish.yml)
+[![docker-hub](https://github.com/LanikSJ/dfimage/actions/workflows/docker-hub.yml/badge.svg)](https://github.com/LanikSJ/dfimage/actions/workflows/docker-hub.yml)
 
 Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image
 being generated. Note: A docker tag is required for correct functionality.
