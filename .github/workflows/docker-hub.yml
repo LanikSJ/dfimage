@@ -11,7 +11,7 @@ on:
 
 env:
   REGISTRY: laniksj
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: dfimage
 
 jobs:
   build-and-push-image:
