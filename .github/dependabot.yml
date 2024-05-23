@@ -13,6 +13,10 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "requests"
+        # For Express, ignore all Dependabot updates for version 4 and 5
+        versions: ["2.32.x"]
   - package-ecosystem: "github-actions" # See documentation for possible values
     directory: "/" # Location of package manifests
     schedule:
