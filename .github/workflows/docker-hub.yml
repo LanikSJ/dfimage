@@ -2,11 +2,11 @@ name: docker-hub
 
 on:
   push:
-    branches: [ master ]
-    paths:
-      - Dockerfile
-      - entrypoint.*
-      - requirements.txt
+    # branches: [ master ]
+    # paths:
+    #   - Dockerfile
+    #   - entrypoint.*
+    #   - requirements.txt
   workflow_dispatch:
 
 env:
