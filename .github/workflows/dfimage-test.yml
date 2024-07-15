@@ -1,4 +1,4 @@
-name: dfimage-test
+name: Dockerfile Image Test
 
 on:
   push:
