@@ -14,20 +14,18 @@ concurrency:
   cancel-in-progress: ${{ github.event_name != 'issue_comment' }}
 
 jobs:
-  update-license-year:
+  run:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Update License Year
-        uses: FantasticFiasco/action-update-license-year@v3
+      - uses: FantasticFiasco/action-update-license-year@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          commitAuthorEmail: noreply@github.com
-      - name: Merge Pull Request
+        id: license
+      - name: Merge PR
         if: steps.license.outputs.pullRequestNumber != ''
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh pr merge --merge --delete-branch ${{ steps.license.outputs.pullRequestNumber }}
+        run: gh pr merge --squash --delete-branch ${{ steps.license.outputs.pullRequestNumber }}
