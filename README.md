@@ -48,6 +48,14 @@ local repo you'll first need to `docker pull` it.
 
 You can find more usage examples in the [Wiki](https://github.com/LanikSJ/dfimage/wiki).
 
+### Alternative: pip install dfimage
+
+To install the `dfimage` package using pip(x), run the following command:
+
+    pipx install dfimage
+
+Note that Docker must be installed on your system for the `dfimage` package to work correctly.
+
 ## Docker Example
 
 [![docker-publish](https://github.com/LanikSJ/dfimage/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/LanikSJ/dfimage/actions/workflows/docker-publish.yml)
