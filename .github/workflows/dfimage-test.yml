@@ -17,7 +17,7 @@ on:
 
 env:
   TEST_TAG: laniksj/dfimage:test
-  LATEST_TAG: laniksj/dfimage:latest
+  IMAGE_TEST: alpine:latest
 
 jobs:
   dfimage-test:
@@ -38,7 +38,11 @@ jobs:
           context: .
           load: true
           tags: ${{ env.TEST_TAG }}
-      -
-        name: Test Docker Container
+      
+      - name: Test Docker Container
         run: |
-          docker pull alpine:latest && docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ${{ env.TEST_TAG }} alpine:latest
+          docker pull ${{ env.IMAGE_TEST }} && docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ${{ env.TEST_TAG }} ${{ env.IMAGE_TEST }}
+        
+      - name: Test Python Package
+        run: |
+          pipx install dfimage && dfimage ${{ env.IMAGE_TEST }}
