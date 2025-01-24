@@ -2,8 +2,6 @@ FROM python:alpine
 
 COPY dfimage.py /app/dfimage.py
 
-COPY dfimage.sh /app/dfimage.sh
-
 COPY pyproject.toml /app/pyproject.toml
 
 RUN apk add --no-cache --update bash jq
