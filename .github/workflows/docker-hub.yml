@@ -6,7 +6,7 @@ on:
     # paths:
     #   - Dockerfile
     #   - entrypoint.*
-    #   - requirements.txt
+    #   - pyproject.toml
   workflow_dispatch:
 
 env:

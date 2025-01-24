@@ -12,10 +12,6 @@ RUN python3 -m venv /app
 
 RUN source /app/bin/activate
 
-RUN python3 -m venv /app/dfimage
-
-RUN source /app/dfimage/bin/activate
-
 RUN for i in $(pip list --outdated --format=json |jq -r '.[].name' ) ; do pip install -U $i; done
 
 RUN pip install -e /app
