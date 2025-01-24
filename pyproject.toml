@@ -28,4 +28,4 @@ dev = ["build", "twine"]
 dfimage = "entrypoint:__main__"
 
 [tool.setuptools]
-py-modules = ['lib', 'lib64', 'dfimage', 'include']
+py-modules = ['lib', 'lib64', 'dfimage', 'include', 'docker']
