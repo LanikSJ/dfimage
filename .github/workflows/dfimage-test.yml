@@ -5,13 +5,13 @@ on:
     branches: [ master ]
     paths:
       - Dockerfile
-      - entrypoint.*
-      - requirements.txt
+      - dfimage.*
+      - pyproject.toml
   pull_request:
     branches: [ master ]
     paths:
       - Dockerfile
-      - entrypoint.*
+      - dfimage.*
       - pyproject.toml
   workflow_dispatch:
 
@@ -39,6 +39,15 @@ jobs:
           load: true
           tags: ${{ env.TEST_TAG }}
       
+      - name: Pull Docker Image for Test
+        run: docker pull ${{ env.IMAGE_TEST }}
+
       - name: Test Docker Container
         run: |
-          docker pull ${{ env.IMAGE_TEST }} && docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ${{ env.TEST_TAG }} ${{ env.IMAGE_TEST }}
+          docker run -v /var/run/docker.sock:/var/run/docker.sock --rm ${{ env.TEST_TAG }} ${{ env.IMAGE_TEST }}
+
+      - name: Install with pipx
+        run: pipx install .
+
+      - name: Test pipx Install
+        run: dfimage ${{ env.IMAGE_TEST }}

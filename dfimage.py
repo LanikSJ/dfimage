@@ -123,4 +123,10 @@ class MainObj:
                     break
 
 
-__main__ = MainObj()
+def entrypoint():
+    """ """
+    __main__ = MainObj()
+
+
+if __name__ == "__main__":
+    entrypoint()

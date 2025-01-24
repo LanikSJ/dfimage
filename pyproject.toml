@@ -4,11 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dfimage"
-version = "1.0.0"
+version = "1.0.1"
 description = "Reverse-engineer a Dockerfile from a Docker Image"
 authors = [
   { name = "LanikSJ", email = "12159404+LanikSJ@users.noreply.github.com" },
 ]
+readme = "README.md"
+requires-python = ">=3.8"
 license = { text = "MIT" }
 dependencies = ["docker==7.1.0"]
 classifiers = [
@@ -25,7 +27,7 @@ keywords = ["docker", "dockerfile", "reverse-engineer"]
 dev = ["build", "twine"]
 
 [project.scripts]
-dfimage = "entrypoint:__main__"
+dfimage = "dfimage:entrypoint"
 
 [tool.setuptools]
 py-modules = ['lib', 'lib64', 'dfimage', 'include']
