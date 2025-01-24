@@ -5,7 +5,7 @@ on:
     branches: [ master ]
     paths:
       - Dockerfile
-      - entrypoint.*
+      - dfimage.*
       - pyproject.toml
   workflow_dispatch:
 

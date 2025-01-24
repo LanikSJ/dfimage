@@ -5,13 +5,13 @@ on:
     branches: [ master ]
     paths:
       - Dockerfile
-      - entrypoint.*
-      - requirements.txt
+      - dfimage.*
+      - pyproject.toml
   pull_request:
     branches: [ master ]
     paths:
       - Dockerfile
-      - entrypoint.*
+      - dfimage.*
       - pyproject.toml
   workflow_dispatch:
 
