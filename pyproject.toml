@@ -9,6 +9,7 @@ description = "Reverse-engineer a Dockerfile from a Docker Image"
 authors = [
   { name = "LanikSJ", email = "12159404+LanikSJ@users.noreply.github.com" },
 ]
+readme = "README.md"
 license = { text = "MIT" }
 dependencies = ["docker==7.1.0"]
 classifiers = [
