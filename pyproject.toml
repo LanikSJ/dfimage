@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dfimage"
-version = "1.0.0"
+version = "1.0.1"
 description = "Reverse-engineer a Dockerfile from a Docker Image"
 authors = [
   { name = "LanikSJ", email = "12159404+LanikSJ@users.noreply.github.com" },
