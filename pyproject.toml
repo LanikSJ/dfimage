@@ -4,10 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dfimage"
-version = "0.0.0.dev0"
+version = "1.0.0"
 description = "Reverse-engineer a Dockerfile from a Docker Image"
 authors = [
-    { name = "LanikSJ", email = "laniksj@example.com" }
+    { name = "LanikSJ", email = "12159404+LanikSJ@users.noreply.github.com" }
 ]
 license = { text = "MIT" }
 dependencies = [
