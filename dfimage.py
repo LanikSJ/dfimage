@@ -122,8 +122,11 @@ class MainObj:
                     self.from_img = self.layers_with_images[layer_id]
                     break
 
+
 def entrypoint():
+    """ """
     __main__ = MainObj()
+
 
 if __name__ == "__main__":
     entrypoint()
