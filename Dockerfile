@@ -16,6 +16,6 @@ RUN yes | pip uninstall pip
 
 RUN rm -rf ~/.cache/* /usr/local/share/man /tmp/* /app/pyproject.toml
 
-ENTRYPOINT ["/app/dfimage.py"]
+ENTRYPOINT ["python3", "/app/dfimage.py"]
 
 CMD ["/bin/bash"]
