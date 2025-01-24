@@ -25,7 +25,7 @@ keywords = ["docker", "dockerfile", "reverse-engineer"]
 dev = ["build", "twine"]
 
 [project.scripts]
-dfimage = "entrypoint:__main__"
+dfimage = "dfimage:entrypoint"
 
 [tool.setuptools]
 py-modules = ['lib', 'lib64', 'dfimage', 'include']
