@@ -26,3 +26,6 @@ dev = ["build", "twine"]
 
 [project.scripts]
 dfimage = "entrypoint:__main__"
+
+[tool.setuptools]
+py-modules = ['lib', 'lib64', 'dfimage', 'include']

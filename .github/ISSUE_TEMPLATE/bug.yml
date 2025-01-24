@@ -19,8 +19,8 @@ body:
       label: "Docker Config"
       description: Please provide your Docker version
       value: |
-        1. Open Docker Desktop
-        2. Docker Desktop > About
+        1. Open CLI and Run
+        2. docker --version
       render: bash
     validations:
       required: true
