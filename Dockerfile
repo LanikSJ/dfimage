@@ -6,7 +6,7 @@ COPY dfimage.sh /app/dfimage.sh
 
 COPY pyproject.toml /app/pyproject.toml
 
-RUN apk add --no-cache --update bash jq 
+RUN apk add --no-cache --update bash jq
 
 RUN python3 -m venv /app
 
