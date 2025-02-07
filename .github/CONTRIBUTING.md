@@ -1,6 +1,7 @@
 # Contributing
 
 ## Request for Changes/ Pull Requests
+
 You first need to create a fork of the [dfimage](https://github.com/Laniksj/dfimage/) repository to commit your changes to it. Methods to fork a repository can be found in the [GitHub Documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
 Then add your fork as a local project:
@@ -40,6 +41,7 @@ git remote -v
 ```
 
 ## Receive remote updates
+
 In view of staying up to date with the central repository :
 
 ```sh
@@ -47,6 +49,7 @@ git pull upstream main
 ```
 
 ## Choose a base branch
+
 Before starting development, you need to know which branch to base your modifications/additions on. When in doubt, use main.
 
 | Type of change                |           | Branches              |
