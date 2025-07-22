@@ -1,5 +1,9 @@
 name: Dockerfile Image Test
 
+permissions:
+  contents: read
+  packages: read
+
 on:
   push:
     branches: [ master ]
@@ -50,4 +54,4 @@ jobs:
         run: pipx install .
 
       - name: Test pipx Install
-        run: dfimage ${{ env.IMAGE_TEST }}
+        run: dfimage
