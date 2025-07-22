@@ -1,5 +1,9 @@
 name: Update License
 
+permissions:
+  contents: write
+  pull-requests: write
+
 on:
   schedule:
     - cron: '0 10 1 1 *' # 10:00 AM on January 1
