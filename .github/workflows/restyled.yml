@@ -1,7 +1,7 @@
 name: Restyled
 
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 
 on:
@@ -60,9 +60,6 @@ jobs:
 
   # On closed events clean up any leftover Restyled PRs
   restyled-cleanup:
-    permissions:
-      contents: read
-      pull-requests: write
     if: ${{ github.event.action == 'closed' }}
     runs-on: ubuntu-latest
     steps:
