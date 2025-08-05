@@ -142,7 +142,7 @@ class DockerfileGenerator:
         """Formats and adds a command step to the list of Dockerfile commands.
 
         :param step_content: The raw 'CreatedBy' string from image history.
-        :param step_content: str: 
+        :param step_content: str:
 
         """
         if "#(nop)" in step_content:
