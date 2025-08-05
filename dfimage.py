@@ -197,13 +197,11 @@ def entrypoint() -> None:
 
     """
     parser = argparse.ArgumentParser(
-        description=
-        "Generate a Dockerfile-like representation from a Docker image.")
+        description="Generate a Dockerfile-like representation from a Docker image.")
     parser.add_argument(
         "image",
         type=str,
-        help=
-        "The name or ID of the Docker image (e.g., 'ubuntu:latest' or 'abcdef123456')",
+        help="The name or ID of the Docker image (e.g., 'ubuntu:latest' or 'abcdef123456')",
     )
     args = parser.parse_args()
 
