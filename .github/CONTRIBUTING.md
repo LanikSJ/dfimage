@@ -2,7 +2,9 @@
 
 ## Request for Changes/ Pull Requests
 
-You first need to create a fork of the [dfimage](https://github.com/Laniksj/dfimage/) repository to commit your changes to it. Methods to fork a repository can be found in the [GitHub Documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+You first need to create a fork of the [dfimage](https://github.com/Laniksj/dfimage/)
+repository to commit your changes to it. Methods to fork a repository can be found
+in the [GitHub Documentation](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
 Then add your fork as a local project:
 
@@ -50,7 +52,8 @@ git pull upstream main
 
 ## Choose a base branch
 
-Before starting development, you need to know which branch to base your modifications/additions on. When in doubt, use main.
+Before starting development, you need to know which branch to base your
+modifications/additions on. When in doubt, use main.
 
 | Type of change                |           | Branches              |
 | :------------------           |:---------:| ---------------------:|
@@ -70,4 +73,6 @@ git pull
 git switch --create patch/1234-name-issue
 ```
 
-Commit your changes, then push the branch to your fork with `git push -u fork` and open a pull request on [the dfimage repository](https://github.com/LanikSJ/dfimage/) following the template provided.
+Commit your changes, then push the branch to your fork with `git push -u fork`
+and open a pull request on [the dfimage repository](https://github.com/LanikSJ/dfimage/)
+following the template provided.
