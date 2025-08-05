@@ -24,34 +24,32 @@ Reverse-engineers a Dockerfile from a Docker image.
 See my [Inspiration](https://github.com/CenturyLinkLabs/dockerfile-from-image) and
 [Container Source](https://hub.docker.com/r/chenzj/dfimage/) for more information.
 
-Similar to how the `docker history` command works, the Python script is able to
-re-create the Dockerfile ([approximately](#️-limitations)) that was used to
-generate an image using the metadata that Docker stores alongside each image layer.
+Similar to how the `docker history` command works, the Python script is able to re-create the Dockerfile
+([approximately](#️-limitations)) that was used to generate an image using the metadata that Docker stores
+alongside each image layer.
 
 ## ⚡ Usage
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/e49393ee816646f28044e4d4f386f5ac)](https://www.codacy.com/gh/LanikSJ/dfimage/dashboard?utm_source=github.com&utm_medium=referral&utm_content=LanikSJ/dfimage&utm_campaign=Badge_Grade)
 [![codecov](https://codecov.io/gh/LanikSJ/dfimage/branch/master/graph/badge.svg)](https://codecov.io/gh/LanikSJ/dfimage)
 
-The Python script is itself packaged as a Docker image so it can easily be
-executed with the Docker _run_ command:
+The Python script is itself packaged as a Docker image so it can easily be executed with the Docker _run_
+command:
 
 ```bash
 docker run -v /var/run/docker.sock:/var/run/docker.sock dfimage ruby:latest
 ```
 
-The `ruby:latest` parameter is the image name & tag (either the truncated form
-or the complete image name & tag).
+The `ruby:latest` parameter is the image name & tag (either the truncated form or the complete image name &
+tag).
 
-Since the script interacts with the Docker API in order to query the metadata
-for the various image layers it needs access to the Docker API socket. The `-v`
-flag shown above makes the Docker socket available inside the container running
-the script.
+Since the script interacts with the Docker API in order to query the metadata for the various image layers it
+needs access to the Docker API socket. The `-v` flag shown above makes the Docker socket available inside the
+container running the script.
 
-Note that the script only works against images that exist in your local image
-repository (the stuff you see when you type `docker images`). If you want to
-generate a Dockerfile for an image that doesn't exist in your local repo you'll
-first need to `docker pull` it.
+Note that the script only works against images that exist in your local image repository (the stuff you see
+when you type `docker images`). If you want to generate a Dockerfile for an image that doesn't exist in your
+local repo you'll first need to `docker pull` it.
 
 You can find more usage examples in the [Wiki](https://github.com/LanikSJ/dfimage/wiki).
 
@@ -63,8 +61,7 @@ To install the `dfimage` package using pip(x), run the following command:
 pipx install dfimage
 ```
 
-Note that Docker must be installed on your system for the `dfimage` package to
-work correctly.
+Note that Docker must be installed on your system for the `dfimage` package to work correctly.
 
 ## 🧪 Test
 
@@ -77,9 +74,8 @@ dfimage --help
 [![docker-publish](https://github.com/LanikSJ/dfimage/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/LanikSJ/dfimage/actions/workflows/docker-publish.yml)
 [![docker-hub](https://github.com/LanikSJ/dfimage/actions/workflows/docker-hub.yml/badge.svg)](https://github.com/LanikSJ/dfimage/actions/workflows/docker-hub.yml)
 
-Here's an example that shows the official Docker ruby image being pulled and the
-Dockerfile for that image being generated. Note: A docker tag is required for
-correct functionality.
+Here's an example that shows the official Docker ruby image being pulled and the Dockerfile for that image
+being generated. Note: A docker tag is required for correct functionality.
 
 ```bash
 docker pull ruby:latest
@@ -90,37 +86,32 @@ dfimage ruby:latest
 
 ## 🔍 How Does It Work
 
-When an image is constructed from a Dockerfile, each instruction in the Dockerfile
-results in a new layer. You can see all of the image layers by using the
-`docker images` command with the (now deprecated) `--tree` flag.
+When an image is constructed from a Dockerfile, each instruction in the Dockerfile results in a new layer. You
+can see all of the image layers by using the `docker images` command with the (now deprecated) `--tree` flag.
 
 ```bash
 docker images --tree
 ```
 
-Each one of these layers is the result of executing an instruction in a Dockerfile.
-In fact, if you do a `docker inspect` on any one of these layers you can see the
-instruction that was used to generate that layer.
+Each one of these layers is the result of executing an instruction in a Dockerfile. In fact, if you do a
+`docker inspect` on any one of these layers you can see the instruction that was used to generate that layer.
 
 ## ⚠️ Limitations
 
-As the Python script walks the list of layers contained in the image it stops when
-it reaches the first tagged layer. It is assumed that a layer which has been tagged
-represents a distinct image with its own Dockerfile so the script will output a `FROM`
-directive with the tag name.
+As the Python script walks the list of layers contained in the image it stops when it reaches the first tagged
+layer. It is assumed that a layer which has been tagged represents a distinct image with its own Dockerfile so
+the script will output a `FROM` directive with the tag name.
 
-In the example above, the _ruby_ image contained a layer in the local image repository
-which had been tagged with _buildpack-deps_ (though it wasn't shown in the example,
-this likely means that _buildpack-deps:latest_ was also pulled at some point). If
-the _buildpack-deps_ layer had not been tagged, the Python script would have continued
-outputting Dockerfile directives until it reached the root layer.
+In the example above, the _ruby_ image contained a layer in the local image repository which had been tagged
+with _buildpack-deps_ (though it wasn't shown in the example, this likely means that _buildpack-deps:latest_
+was also pulled at some point). If the _buildpack-deps_ layer had not been tagged, the Python script would
+have continued outputting Dockerfile directives until it reached the root layer.
 
-Also note that the output generated by the script won't match exactly the original
-Dockerfile if either the `COPY` or `ADD` directives (like the example above) are
-used. Since we no longer have access to the build context that was present when
-the original `docker build` command was executed all we can see is that some
-directory or file was copied to the image's filesystem (you'll see the file/
-directory checksum and the destination it was copied to).
+Also note that the output generated by the script won't match exactly the original Dockerfile if either the
+`COPY` or `ADD` directives (like the example above) are used. Since we no longer have access to the build
+context that was present when the original `docker build` command was executed all we can see is that some
+directory or file was copied to the image's filesystem (you'll see the file/ directory checksum and the
+destination it was copied to).
 
 ## 🐛 Bugs
 
