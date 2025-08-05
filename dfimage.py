@@ -19,9 +19,7 @@ class ImageNotFound(Exception):
 
 
 class DockerfileGenerator:
-    """
-    Generates a Dockerfile-like representation of a Docker image's history.
-    """
+    """Generates a Dockerfile-like representation of a Docker image's history."""
 
     def __init__(self, image_name: str, docker_client: client.DockerClient):
         """
@@ -40,9 +38,7 @@ class DockerfileGenerator:
         self.history_info: Optional[List[Dict[str, Any]]] = None
 
     def run(self) -> None:
-        """
-        Executes the steps to generate and print the Dockerfile commands.
-        """
+        """Executes the steps to generate and print the Dockerfile commands."""
         try:
             self._get_image_info()
             self._get_all_layers_with_images()
@@ -60,11 +56,11 @@ class DockerfileGenerator:
             sys.exit(1)
 
     def _get_image_info(self) -> None:
-        """
-        Retrieves detailed information about the specified Docker image.
+        """Retrieves detailed information about the specified Docker image.
 
-        Raises:
-            ImageNotFound: If the image cannot be found locally.
+
+        :raises ImageNotFound: If the image cannot be found locally.
+
         """
         repo_tag = (
             self.image_name if ":" in self.image_name else f"{self.image_name}:latest"
@@ -95,9 +91,10 @@ class DockerfileGenerator:
         )
 
     def _get_all_layers_with_images(self) -> None:
-        """
-        Populates a dictionary mapping layer IDs to their corresponding image tags.
+        """Populates a dictionary mapping layer IDs to their corresponding image tags.
         This helps in identifying base images.
+
+
         """
         all_images = self.cli.api.images()
         for img in all_images:
@@ -115,9 +112,10 @@ class DockerfileGenerator:
                 continue
 
     def _determine_base_image(self) -> None:
-        """
-        Determines the base image (FROM instruction) for the current image
+        """Determines the base image (FROM instruction) for the current image
         by inspecting its layers and comparing them with known image layers.
+
+
         """
         if not self.image_info:
             return
@@ -139,11 +137,11 @@ class DockerfileGenerator:
                     break
 
     def _insert_command_step(self, step_content: str) -> None:
-        """
-        Formats and adds a command step to the list of Dockerfile commands.
+        """Formats and adds a command step to the list of Dockerfile commands.
 
-        Args:
-            step_content: The raw 'CreatedBy' string from image history.
+        :param step_content: The raw 'CreatedBy' string from image history.
+        :param step_content: str: 
+
         """
         if "#(nop)" in step_content:
             # Extract the actual command from '#(nop) CMD ["/bin/sh", "-c", "..."]'
@@ -156,9 +154,7 @@ class DockerfileGenerator:
         self.commands.append(to_add.strip())
 
     def _parse_image_history(self) -> None:
-        """
-        Parses the image history to extract Dockerfile commands.
-        """
+        """Parses the image history to extract Dockerfile commands."""
         if not self.history_info:
             return
 
@@ -192,17 +188,16 @@ class DockerfileGenerator:
         self.commands.reverse()  # Commands are in reverse order from history
 
     def _print_commands(self) -> None:
-        """
-        Prints the generated Dockerfile commands to stdout.
-        """
+        """Prints the generated Dockerfile commands to stdout."""
         for cmd in self.commands:
             print(cmd)
 
 
 def entrypoint() -> None:
-    """
-    Main entry point for the dfimage script.
+    """Main entry point for the dfimage script.
     Parses arguments and initiates the Dockerfile generation.
+
+
     """
     parser = argparse.ArgumentParser(
         description="Generate a Dockerfile-like representation from a Docker image."
