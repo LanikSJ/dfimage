@@ -2,10 +2,7 @@
 import argparse
 import logging
 import sys
-from typing import Any
-from typing import Dict
-from typing import List
-from typing import Optional
+from typing import Any, Dict, List, Optional
 
 import docker
 from docker import client
