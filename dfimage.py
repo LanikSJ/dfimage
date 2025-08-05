@@ -1,26 +1,27 @@
 #!/usr/bin/env python3
-
 import argparse
 import logging
 import sys
-from typing import Any, Dict, List, Optional
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
 
 import docker
 from docker import client
 
 # Configure logging
-logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
+logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 
 class ImageNotFound(Exception):
     """Custom exception raised when a Docker image is not found."""
+
     pass
 
 
 class DockerfileGenerator:
-    """
-    Generates a Dockerfile-like representation of a Docker image's history.
-    """
+    """Generates a Dockerfile-like representation of a Docker image's history."""
 
     def __init__(self, image_name: str, docker_client: client.DockerClient):
         """
@@ -39,9 +40,7 @@ class DockerfileGenerator:
         self.history_info: Optional[List[Dict[str, Any]]] = None
 
     def run(self) -> None:
-        """
-        Executes the steps to generate and print the Dockerfile commands.
-        """
+        """Executes the steps to generate and print the Dockerfile commands."""
         try:
             self._get_image_info()
             self._get_all_layers_with_images()
@@ -59,13 +58,14 @@ class DockerfileGenerator:
             sys.exit(1)
 
     def _get_image_info(self) -> None:
-        """
-        Retrieves detailed information about the specified Docker image.
+        """Retrieves detailed information about the specified Docker image.
 
-        Raises:
-            ImageNotFound: If the image cannot be found locally.
+
+        :raises ImageNotFound: If the image cannot be found locally.
+
         """
-        repo_tag = self.image_name if ":" in self.image_name else f"{self.image_name}:latest"
+        repo_tag = (self.image_name
+                    if ":" in self.image_name else f"{self.image_name}:latest")
         image_id_prefix = self.image_name.lower()
 
         all_images = self.cli.api.images()
@@ -82,16 +82,17 @@ class DockerfileGenerator:
         if not self.image_info:
             raise ImageNotFound(
                 f"Image '{repo_tag}' or ID '{self.image_name}' not found locally. "
-                f"Please ensure you run 'docker pull {repo_tag}' beforehand."
-            )
-        
-        self.history_info = self.cli.api.history(self.image_info["RepoTags"][0] if self.image_info["RepoTags"] else self.image_info["Id"])
+                f"Please ensure you run 'docker pull {repo_tag}' beforehand.")
 
+        self.history_info = self.cli.api.history(
+            self.image_info["RepoTags"][0] if self.
+            image_info["RepoTags"] else self.image_info["Id"])
 
     def _get_all_layers_with_images(self) -> None:
-        """
-        Populates a dictionary mapping layer IDs to their corresponding image tags.
+        """Populates a dictionary mapping layer IDs to their corresponding image tags.
         This helps in identifying base images.
+
+
         """
         all_images = self.cli.api.images()
         for img in all_images:
@@ -101,17 +102,20 @@ class DockerfileGenerator:
                 if layers:
                     last_layer_id = layers[-1]
                     if img["RepoTags"]:
-                        self.layers_with_images[last_layer_id] = img["RepoTags"][0]
+                        self.layers_with_images[last_layer_id] = img[
+                            "RepoTags"][0]
             except docker.errors.APIError as e:
-                logging.warning(f"Could not inspect image {img.get('Id', 'N/A')}: {e}")
+                logging.warning(
+                    f"Could not inspect image {img.get('Id', 'N/A')}: {e}")
             except KeyError:
                 # RootFS or Layers might be missing for some image types
                 continue
 
     def _determine_base_image(self) -> None:
-        """
-        Determines the base image (FROM instruction) for the current image
+        """Determines the base image (FROM instruction) for the current image
         by inspecting its layers and comparing them with known image layers.
+
+
         """
         if not self.image_info:
             return
@@ -124,17 +128,18 @@ class DockerfileGenerator:
                 if layer_id in self.layers_with_images:
                     possible_from_img = self.layers_with_images[layer_id]
                     # Ensure the found image is not the image itself
-                    if self.image_info["RepoTags"] and possible_from_img == self.image_info["RepoTags"][0]:
+                    if (self.image_info["RepoTags"] and possible_from_img
+                            == self.image_info["RepoTags"][0]):
                         continue
                     self.from_img = possible_from_img
                     break
 
     def _insert_command_step(self, step_content: str) -> None:
-        """
-        Formats and adds a command step to the list of Dockerfile commands.
+        """Formats and adds a command step to the list of Dockerfile commands.
 
-        Args:
-            step_content: The raw 'CreatedBy' string from image history.
+        :param step_content: The raw 'CreatedBy' string from image history.
+        :param step_content: str:
+
         """
         if "#(nop)" in step_content:
             # Extract the actual command from '#(nop) CMD ["/bin/sh", "-c", "..."]'
@@ -147,9 +152,7 @@ class DockerfileGenerator:
         self.commands.append(to_add.strip())
 
     def _parse_image_history(self) -> None:
-        """
-        Parses the image history to extract Dockerfile commands.
-        """
+        """Parses the image history to extract Dockerfile commands."""
         if not self.history_info:
             return
 
@@ -161,11 +164,14 @@ class DockerfileGenerator:
                 if from_hist:
                     base_image_last_created_by = from_hist[0]["CreatedBy"]
             except docker.errors.APIError as e:
-                logging.warning(f"Could not get history for base image {self.from_img}: {e}")
+                logging.warning(
+                    f"Could not get history for base image {self.from_img}: {e}"
+                )
 
         # Iterate through the current image's history
         for entry in self.history_info:
-            if base_image_last_created_by and entry["CreatedBy"] == base_image_last_created_by:
+            if (base_image_last_created_by
+                    and entry["CreatedBy"] == base_image_last_created_by):
                 break  # Stop when we reach the base image's last layer
             self._insert_command_step(entry["CreatedBy"])
 
@@ -178,31 +184,32 @@ class DockerfileGenerator:
         self.commands.reverse()  # Commands are in reverse order from history
 
     def _print_commands(self) -> None:
-        """
-        Prints the generated Dockerfile commands to stdout.
-        """
+        """Prints the generated Dockerfile commands to stdout."""
         for cmd in self.commands:
             print(cmd)
 
 
 def entrypoint() -> None:
-    """
-    Main entry point for the dfimage script.
+    """Main entry point for the dfimage script.
     Parses arguments and initiates the Dockerfile generation.
+
+
     """
     parser = argparse.ArgumentParser(
-        description="Generate a Dockerfile-like representation from a Docker image."
-    )
+        description=
+        "Generate a Dockerfile-like representation from a Docker image.")
     parser.add_argument(
         "image",
         type=str,
-        help="The name or ID of the Docker image (e.g., 'ubuntu:latest' or 'abcdef123456')"
+        help=
+        "The name or ID of the Docker image (e.g., 'ubuntu:latest' or 'abcdef123456')",
     )
     args = parser.parse_args()
 
     try:
         # Initialize Docker client
-        docker_client = client.DockerClient(base_url="unix:///var/run/docker.sock")
+        docker_client = client.DockerClient(
+            base_url="unix:///var/run/docker.sock")
         # Test connection
         docker_client.ping()
     except docker.errors.APIError as e:
@@ -210,7 +217,8 @@ def entrypoint() -> None:
         logging.error("Please ensure Docker is running and accessible.")
         sys.exit(1)
     except Exception as e:
-        logging.error(f"An unexpected error occurred while connecting to Docker: {e}")
+        logging.error(
+            f"An unexpected error occurred while connecting to Docker: {e}")
         sys.exit(1)
 
     generator = DockerfileGenerator(args.image, docker_client)
