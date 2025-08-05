@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-
 import argparse
 import logging
 import sys
-from typing import Any, Dict, List, Optional
+from typing import Any
+from typing import Dict
+from typing import List
+from typing import Optional
 
 import docker
 from docker import client
