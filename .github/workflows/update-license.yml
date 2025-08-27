@@ -1,22 +1,22 @@
 name: Update License
 
-permissions:
-  contents: write
-  pull-requests: write
-
 on:
   schedule:
     - cron: '0 10 1 1 *' # 10:00 AM on January 1
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   action-update-license-year:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
         with:
           fetch-depth: 0
-      - uses: FantasticFiasco/action-update-license-year@v3
+      - uses: FantasticFiasco/action-update-license-year@d837fc83ecb71196807bdf3854208f556e66f6ed # v3.0.3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commitAuthorEmail: noreply@github.com
