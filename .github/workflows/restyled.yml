@@ -28,9 +28,9 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.ref }}
 
-      - uses: restyled-io/actions/setup@fd6fa5e604a2b650914a9311088031bd23fffc0d # v4.4.0
+      - uses: restyled-io/actions/setup@058db90a6d6222bce59609eabe186eafcc96e809 # v4.4.1
       - id: restyler
-        uses: restyled-io/actions/run@fd6fa5e604a2b650914a9311088031bd23fffc0d # v4.4.0
+        uses: restyled-io/actions/run@058db90a6d6222bce59609eabe186eafcc96e809 # v4.4.1
         with:
           fail-on-differences: true
 
@@ -53,8 +53,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      - uses: restyled-io/actions/setup@fd6fa5e604a2b650914a9311088031bd23fffc0d # v4.4.0
-      - uses: restyled-io/actions/run@fd6fa5e604a2b650914a9311088031bd23fffc0d # v4.4.0
+      - uses: restyled-io/actions/setup@058db90a6d6222bce59609eabe186eafcc96e809 # v4.4.1
+      - uses: restyled-io/actions/run@058db90a6d6222bce59609eabe186eafcc96e809 # v4.4.1
         with:
           fail-on-differences: true
 
@@ -63,9 +63,9 @@ jobs:
     if: ${{ github.event.action == 'closed' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: restyled-io/actions/setup@fd6fa5e604a2b650914a9311088031bd23fffc0d # v4.4.0
+      - uses: restyled-io/actions/setup@058db90a6d6222bce59609eabe186eafcc96e809 # v4.4.1
       - id: restyler
-        uses: restyled-io/actions/run@fd6fa5e604a2b650914a9311088031bd23fffc0d # v4.4.0
+        uses: restyled-io/actions/run@058db90a6d6222bce59609eabe186eafcc96e809 # v4.4.1
       - run: gh --repo "$REPO" pr close "$BRANCH" --delete-branch || true
         env:
           REPO: ${{ github.repository }}
