@@ -25,9 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-
       - uses: restyled-io/actions/setup@e3cf32c6ab87c25a80755403de9bf92fa34ab4bb # v4.4.2
       - id: restyler
         uses: restyled-io/actions/run@e3cf32c6ab87c25a80755403de9bf92fa34ab4bb # v4.4.2
