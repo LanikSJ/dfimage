@@ -1,23 +1,31 @@
 version: 2
 updates:
-  - package-ecosystem: "docker"
+  # Maintain dependencies for pip
+  - package-ecosystem: pip
     directory: "/"
     schedule:
-      interval: "daily"
-      time: '08:00'
-      timezone: America/Los_Angeles
-    open-pull-requests-limit: 99
-  - package-ecosystem: "pip"
+      interval: daily
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: github-actions
     directory: "/"
     schedule:
-      interval: "daily"
-      time: '08:00'
-      timezone: America/Los_Angeles
-    open-pull-requests-limit: 99
-  - package-ecosystem: "github-actions"
+      interval: daily
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "ci(deps)"
+      prefix-development: "ci(deps-dev)"
+
+  # Maintain dependencies for Devcontainers
+  - package-ecosystem: docker
     directory: "/"
     schedule:
-      interval: "daily"
-      time: '08:00'
-      timezone: America/Los_Angeles
-    open-pull-requests-limit: 99
+      interval: daily
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"
