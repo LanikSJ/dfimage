@@ -1,5 +1,15 @@
 version: 2
 updates:
+  # Maintain dependencies for pip
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "build(deps)"
+      prefix-development: "build(deps-dev)"
+
   # Maintain dependencies for GitHub Actions
   - package-ecosystem: github-actions
     directory: "/"
