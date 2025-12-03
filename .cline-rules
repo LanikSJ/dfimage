@@ -1,0 +1,55 @@
+# Cline Rules for dfimage Repository
+
+## Repository Overview
+
+dfimage is a tool for analyzing disk usage of Docker images, helping developers optimize container sizes.
+
+## Code Standards and Practices
+
+### Code Quality
+
+- Write clear, maintainable Python code
+- Include type hints where appropriate
+- Implement proper error handling and validation
+- Add comprehensive tests for new functionality
+
+### Documentation Standards
+
+- Include clear usage examples and command-line options
+- Document Docker and Python version requirements
+- Provide installation and troubleshooting instructions
+- Use markdown formatting consistently
+
+### Markdown Compliance Requirements
+
+- **ALL markdown files (.md) MUST pass markdownlint validation with zero errors or warnings**
+- Run `markdownlint <filename>` on every markdown file before considering it complete
+- Follow the project's `.markdownlint.json` configuration strictly
+- Address ALL markdownlint issues immediately - no exceptions or workarounds
+- Common requirements include:
+  - Maximum line length of 80 characters (MD013)
+  - Consistent heading styles and hierarchy
+  - Proper list formatting and indentation
+  - Blank lines around headings and code blocks
+  - Consistent link and reference formatting
+  - No trailing whitespace
+  - Files must end with newlines
+  - Proper table formatting when applicable
+- Use `markdownlint --fix <filename>` for auto-fixable issues when available
+- Validate markdown files in CI/CD pipelines where applicable
+
+## Development Guidelines
+
+### When Making Changes
+
+- Preserve existing functionality unless explicitly asked to change it
+- Update documentation when adding new features or modifying behavior
+- Add tests for new functionality
+- **Always run markdownlint and fix all issues in markdown files before considering changes complete**
+
+### Docker Tool Standards
+
+- Handle various Docker image formats and registries
+- Provide clear error messages for common issues
+- Implement performance optimizations for large images
+- Maintain compatibility across Docker versions
