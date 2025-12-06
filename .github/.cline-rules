@@ -25,16 +25,21 @@ in the GitHub directory (`.github/*`).
 ### GitHub-Specific Requirements
 
 #### Templates and Workflows
+
 - Ensure issue and pull request templates provide clear, actionable guidelines
 - Include project-specific troubleshooting sections in templates
 - Reference existing project documentation and standards
+
 #### Documentation Standards
+
 - .github/CONTRIBUTING.md must include:
   - Development environment setup instructions
   - Testing requirements and procedures
   - Documentation standards for new features
   - Project-specific contribution guidelines
+
 #### Automation and CI/CD
+
 - Project workflows must include automated testing stages
 - Code quality checks must be integrated into CI/CD
 - Release automation must be properly configured
@@ -42,6 +47,7 @@ in the GitHub directory (`.github/*`).
 ### Quality Gates (MANDATORY)
 
 **For ANY change made to `.github/*` files:**
+
 1. ✅ Run markdownlint validation (if .md file)
 2. ✅ Ensure project standards are followed (if applicable)
 3. ✅ Verify contribution guidelines are up-to-date and accurate
@@ -57,6 +63,7 @@ in the GitHub directory (`.github/*`).
 ### Reference Documentation
 
 See root `.cline-rules` file for additional project-wide standards including:
+
 - Project-specific standards
 - Development requirements
 - Quality guidelines
