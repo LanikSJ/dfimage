@@ -11,9 +11,11 @@ on:
     - cron: "0 0 * * *"
   issue_comment:
 
-permissions:
-  issues: write
-  pull-requests: write
+permissions: {}
+
+defaults:
+  run:
+    shell: bash -xeuo pipefail
 
 concurrency:
   group: stale-issues
@@ -21,7 +23,16 @@ concurrency:
 
 jobs:
   stale:
+    if: >
+      github.repository_owner == 'LanikSJ' && (
+        github.event_name != 'issue_comment' ||
+        contains(github.event.issue.labels.*.name, 'stale')
+      )
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - name: Mark/Close Stale Issues and Pull Requests
         uses: actions/stale@997185467fa4f803885201cee163a9f38240193d # v10.1.1
@@ -37,3 +48,4 @@ jobs:
             recent activity. It will be closed if no further activity occurs.
           exempt-issue-labels: "help wanted,in progress"
           exempt-pr-labels: "help wanted,in progress"
+          delete-branch: true
