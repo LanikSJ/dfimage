@@ -7,17 +7,18 @@ on:
     branches-ignore:
       - dependabot/**
   schedule:
-    # Once every month on 5th day at 14:15 UTC
-    - cron: "15 14 5 * *"
+    # Once every month on 2nd at 04:45 UTC
+    - cron: "45 4 2 * *"
   issue_comment:
+  workflow_dispatch:
 
 permissions:
   issues: write
   pull-requests: write
+  discussions: write
 
 concurrency:
   group: lock-threads
-  cancel-in-progress: ${{ github.event_name != 'issue_comment' }}
 
 jobs:
   lock-threads:
@@ -29,6 +30,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           process-only: 'issues, prs'
           issue-inactive-days: 30
-          add-issue-labels: outdated
+          add-issue-labels: 'outdated'
           pr-inactive-days: 30
-          add-pr-labels: outdated
+          add-pr-labels: 'outdated'
