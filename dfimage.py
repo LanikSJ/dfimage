@@ -80,6 +80,11 @@ class DockerfileParser:
         return self.commands.copy()
 
     def _get_image(self, repo_tag_or_id: str) -> Dict:
+        """
+
+        :param repo_tag_or_id: str:
+
+        """
         # Handle default tag if none provided
         repo_tag = (repo_tag_or_id
                     if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest")
@@ -130,6 +135,11 @@ class DockerfileParser:
                 pass
 
     def _insert_step(self, step: str) -> None:
+        """
+
+        :param step: str:
+
+        """
         # Remove Docker's no-operation marker
         if "#(nop)" in step:
             to_add = step.split("#(nop) ", 1)[1]
