@@ -24,6 +24,8 @@ class DockerfileParser:
 
     This class analyzes a Docker image's layer history and attempts to
     reconstruct the Dockerfile commands that were used to build it.
+
+
     """
 
     def __init__(self, image_identifier: str):
@@ -71,23 +73,20 @@ class DockerfileParser:
     def get_commands(self) -> List[str]:
         """Get the reconstructed Dockerfile commands.
 
-        Returns:
-            List of Dockerfile commands
+
+        :returns: List of Dockerfile commands
+
         """
         return self.commands.copy()
 
     def _get_image(self, repo_tag_or_id: str) -> Dict:
-        """
-        Find and return Docker image information.
-        
-        Args:
-            repo_tag_or_id: Image name, tag, or ID
-            
-        Returns:
-            Dictionary containing image information
-            
-        Raises:
-            ImageNotFound: If image cannot be found
+        """Find and return Docker image information.
+
+        :param repo_tag_or_id: Image name, tag, or ID
+        :param repo_tag_or_id: str:
+        :returns: Dictionary containing image information
+        :raises ImageNotFound: If image cannot be found
+
         """
         # Handle default tag if none provided
         repo_tag = (repo_tag_or_id
@@ -139,12 +138,11 @@ class DockerfileParser:
                 pass
 
     def _insert_step(self, step: str) -> None:
-        """
+        """Process and add a Dockerfile command step.
 
-        Process and add a Dockerfile command step.
-        
-        Args:
-            step: Raw command from Docker history
+        :param step: Raw command from Docker history
+        :param step: str:
+
         """
         # Remove Docker's no-operation marker
         if "#(nop)" in step:
