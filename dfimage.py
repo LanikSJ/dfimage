@@ -80,16 +80,6 @@ class DockerfileParser:
         return self.commands.copy()
 
     def _get_image(self, repo_tag_or_id: str) -> Dict:
-        """Find and return Docker image information.
-
-        param repo_tag_or_id: Image name, tag, or ID
-        param repo_tag_or_id: str
-        returns: Dictionary containing image information
-        raises ImageNotFound: If image cannot be found
-
-        :param repo_tag_or_id: str:
-
-        """
         # Handle default tag if none provided
         repo_tag = (repo_tag_or_id
                     if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest")
@@ -140,14 +130,6 @@ class DockerfileParser:
                 pass
 
     def _insert_step(self, step: str) -> None:
-        """Process and add a Dockerfile command step.
-
-        param step: Raw command from Docker history
-        param step: str
-
-        :param step: str:
-
-        """
         # Remove Docker's no-operation marker
         if "#(nop)" in step:
             to_add = step.split("#(nop) ", 1)[1]
