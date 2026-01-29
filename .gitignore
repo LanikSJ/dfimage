@@ -41,4 +41,4 @@ Thumbs.db
 .ipynb_checkpoints
 
 # Docker
-*.dockerignore
+!*.dockerignore
