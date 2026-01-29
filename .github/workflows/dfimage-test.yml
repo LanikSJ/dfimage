@@ -54,4 +54,4 @@ jobs:
         run: pipx install .
 
       - name: Test pipx Install
-        run: python dfimage.py laniksj/dfimage:test
+        run: dfimage laniksj/dfimage:test
