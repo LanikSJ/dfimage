@@ -78,13 +78,13 @@ class DockerfileParser:
 
     def _get_image(self, repo_tag_or_id: str) -> Dict:
         """Find and return Docker image information.
-        
+
         Args:
             repo_tag_or_id: Image name, tag, or ID
-            
+
         Returns:
             Dictionary containing image information
-            
+
         Raises:
             ImageNotFound: If image cannot be found
         """
@@ -139,7 +139,7 @@ class DockerfileParser:
 
     def _insert_step(self, step: str) -> None:
         """Process and add a Dockerfile command step.
-        
+
         Args:
             step: Raw command from Docker history
         """
