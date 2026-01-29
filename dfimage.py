@@ -13,6 +13,7 @@ from docker.errors import DockerException  # type: ignore
 
 class ImageNotFound(Exception):
     """Exception raised when a Docker image cannot be found."""
+
     pass
 
 
@@ -89,7 +90,9 @@ class DockerfileParser:
             ImageNotFound: If image cannot be found
         """
         # Handle default tag if none provided
-        repo_tag = repo_tag_or_id if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest"
+        repo_tag = (
+            repo_tag_or_id if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest"
+        )
         image_id = repo_tag_or_id.lower()
 
         try:
