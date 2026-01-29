@@ -87,6 +87,8 @@ class DockerfileParser:
         returns: Dictionary containing image information
         raises ImageNotFound: If image cannot be found
 
+        :param repo_tag_or_id: str:
+
         """
         # Handle default tag if none provided
         repo_tag = (repo_tag_or_id
@@ -142,6 +144,8 @@ class DockerfileParser:
 
         param step: Raw command from Docker history
         param step: str
+
+        :param step: str:
 
         """
         # Remove Docker's no-operation marker
