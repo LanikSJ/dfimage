@@ -2,10 +2,10 @@
 
 ## Supported Versions
 
-|    OS   | Version  |     Supported      |
-| ------- | -------- | ------------------ |
-| Alpine  |  3.x.x   | :white_check_mark: |
-| Alpine  |  2.x.x   | :x:                |
+| OS     | Version | Supported          |
+| ------ | ------- | ------------------ |
+| Alpine | 3.x.x   | :white_check_mark: |
+| Alpine | 2.x.x   | :x:                |
 
 ## Reporting a Vulnerability
 
@@ -13,13 +13,16 @@ We take security seriously and appreciate your efforts to responsibly disclose y
 
 ### How to Report
 
-**Do NOT open a public issue** for security vulnerabilities. Instead, please report security issues through one of these
- channels:
+**Do NOT open a public issue** for security vulnerabilities. Instead, please report security issues through
+one of these channels:
 
-1. **GitHub Security Advisories** (Preferred): [Report via GitHub](https://github.com/LanikSJ/dfimage/security/advisories/new)
+1. **GitHub Security Advisories** (Preferred):
+   [Report via GitHub](https://github.com/LanikSJ/dfimage/security/advisories/new)
 2. **Email**: Send details to [security@lanik.us](mailto:security@lanik.us)
-3. **Security Discussions**: Open a discussion in our [GitHub Discussions](https://github.com/LanikSJ/dfimage/discussions/categories/security)
-4. **Security Issues**: Create a [Security Advisory](https://github.com/LanikSJ/dfimage/security/advisories/new) on GitHub
+3. **Security Discussions**: Open a discussion in our
+   [GitHub Discussions](https://github.com/LanikSJ/dfimage/discussions/categories/security)
+4. **Security Issues**: Create a
+   [Security Advisory](https://github.com/LanikSJ/dfimage/security/advisories/new) on GitHub
 
 ### What to Include
 
