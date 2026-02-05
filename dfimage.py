@@ -21,7 +21,7 @@ class ImageNotFound(Exception):
 
 class DockerfileParser:
     """Parse Docker image history to reconstruct Dockerfile commands.
-    
+
     This class analyzes a Docker image's layer history and attempts to
     reconstruct the Dockerfile commands that were used to build it.
 
@@ -85,7 +85,7 @@ class DockerfileParser:
         :param repo_tag_or_id: Image name, tag, or ID
         :param repo_tag_or_id: str:
         :param repo_tag_or_id: str:
-        :param repo_tag_or_id: str: 
+        :param repo_tag_or_id: str:
         :returns: Dictionary containing image information
         :raises ImageNotFound: If image cannot be found
 
@@ -147,7 +147,7 @@ class DockerfileParser:
         :param step: Raw command from Docker history
         :param step: str:
         :param step: str:
-        :param step: str: 
+        :param step: str:
 
         """
         # Remove Docker's no-operation marker
