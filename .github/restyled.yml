@@ -44,11 +44,3 @@ restylers:
       exclude:
           - "dfimage.py"
     
-    - name: black
-      enabled: true
-      image: restyled/restyler-black:v0.2.0.5
-      command:
-          - black
-      arguments: ["--line-length", "110"]
-      include:
-          - "*.py"
