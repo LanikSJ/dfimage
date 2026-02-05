@@ -4,9 +4,10 @@ Dockerfile image parser - Extract Dockerfile commands from a Docker image.
 This module provides functionality to reverse-engineer Dockerfile commands
 from an existing Docker image by analyzing its layer history.
 """
-
 import sys
-from typing import Dict, List, Optional
+from typing import Dict
+from typing import List
+from typing import Optional
 
 from docker import DockerClient  # type: ignore
 from docker.errors import DockerException  # type: ignore
