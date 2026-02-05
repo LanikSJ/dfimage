@@ -84,7 +84,6 @@ class DockerfileParser:
 
         :param repo_tag_or_id: Image name, tag, or ID
         :param repo_tag_or_id: str:
-        :param repo_tag_or_id: str:
         :returns: Dictionary containing image information
         :raises ImageNotFound: If image cannot be found
 
@@ -142,7 +141,6 @@ class DockerfileParser:
         """Process and add a Dockerfile command step.
 
         :param step: Raw command from Docker history
-        :param step: str:
         :param step: str:
 
         """
