@@ -73,7 +73,6 @@ class DockerfileParser:
     def get_commands(self) -> List[str]:
         """Get the reconstructed Dockerfile commands.
 
-
         :returns: List of Dockerfile commands
 
         """
@@ -170,8 +169,7 @@ class DockerfileParser:
         # Process each layer in the history
         for entry in self.hist:
             # Skip commands that belong to the base image
-            if from_last_created_by and entry[
-                    "CreatedBy"] == from_last_created_by:
+            if from_last_created_by and entry["CreatedBy"] == from_last_created_by:
                 break
 
             self._insert_step(entry["CreatedBy"])
