@@ -4,6 +4,7 @@ Dockerfile image parser - Extract Dockerfile commands from a Docker image.
 This module provides functionality to reverse-engineer Dockerfile commands
 from an existing Docker image by analyzing its layer history.
 """
+
 import sys
 from typing import Dict
 from typing import List
@@ -89,8 +90,9 @@ class DockerfileParser:
 
         """
         # Handle default tag if none provided
-        repo_tag = (repo_tag_or_id
-                    if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest")
+        repo_tag = (
+            repo_tag_or_id if ":" in repo_tag_or_id else f"{repo_tag_or_id}:latest"
+        )
         image_id = repo_tag_or_id.lower()
 
         try:
@@ -110,7 +112,8 @@ class DockerfileParser:
 
         raise ImageNotFound(
             f"Image '{repo_tag}' not found! "
-            f"Please ensure you run 'docker pull {repo_tag}' beforehand.")
+            f"Please ensure you run 'docker pull {repo_tag}' beforehand."
+        )
 
     def _get_layers_with_images(self) -> None:
         """Map Docker layers to their corresponding images."""
@@ -170,8 +173,7 @@ class DockerfileParser:
         # Process each layer in the history
         for entry in self.hist:
             # Skip commands that belong to the base image
-            if from_last_created_by and entry[
-                    "CreatedBy"] == from_last_created_by:
+            if from_last_created_by and entry["CreatedBy"] == from_last_created_by:
                 break
 
             self._insert_step(entry["CreatedBy"])
