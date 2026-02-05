@@ -1,0 +1,86 @@
+# Python build artifacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.Python
+.pytest_cache/
+.mypy_cache/
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+
+# Distribution packages
+build/
+dist/
+*.egg
+*.whl
+
+# Development and testing files
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+*.log
+*.sqlite3
+*.db.sqlite3
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+.Trashes
+Thumbs.db
+*.tmp
+*.temp
+
+# Git and version control
+.git/
+.gitignore
+.gitattributes
+.gitmodules
+
+# Documentation and configuration files not needed in container
+*.md
+_config.yml
+.cline-rules
+.editorconfig
+.markdownlint.json
+.prettierrc
+SECURITY.md
+.github/
+.gitlab-ci.yml
+.travis.yml
+.circleci/
+appveyor.yml
+
+# CI/CD workflows (not needed in container)
+.github/workflows/
+
+# Local development files
+.envrc
+.env.local
+.env.*.local
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Docker files (avoid recursive inclusion)
+Dockerfile*
+.dockerignore
+
+# Test files and directories
+tests/
+test_*
+*_test.py

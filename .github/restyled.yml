@@ -1,0 +1,45 @@
+# Do anything at all
+enabled: true
+
+# Push the style fixes directly to the original PR
+auto: false
+
+# Open Restyle PRs?
+pull_requests: true
+
+# Add labels to any created Restyle PRs
+labels:
+    - restyled
+    - automated
+
+# Labels to ignore
+ignore_labels:
+    - restyled-ignore
+    - no-restyled
+
+# Leave comments on the original PR linking to the Restyle PR?
+comments: true
+
+# Patterns to exclude from all Restylers
+exclude:
+    - ".github/workflows/**/*"
+    - "Dockerfile*"
+    - "*.dockerignore"
+    - "*.gitignore"
+    - "pyproject.toml"
+    - "requirements*.txt"
+
+changed_paths:
+    maximum: 100000
+    outcome: error
+
+# Restylers to run, and how
+restylers:
+    - name: whitespace
+      enabled: true
+      image: restyled/restyler-whitespace:v0.2.0.5
+      command:
+          - whitespace
+      arguments: []
+      exclude:
+          - "dfimage.py"
