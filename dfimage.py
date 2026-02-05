@@ -73,6 +73,7 @@ class DockerfileParser:
     def get_commands(self) -> List[str]:
         """Get the reconstructed Dockerfile commands.
 
+
         :returns: List of Dockerfile commands
 
         """
@@ -82,6 +83,7 @@ class DockerfileParser:
         """Find and return Docker image information.
 
         :param repo_tag_or_id: Image name, tag, or ID
+        :param repo_tag_or_id: str:
         :param repo_tag_or_id: str:
         :returns: Dictionary containing image information
         :raises ImageNotFound: If image cannot be found
@@ -141,6 +143,7 @@ class DockerfileParser:
 
         :param step: Raw command from Docker history
         :param step: str:
+        :param step: str:
 
         """
         # Remove Docker's no-operation marker
@@ -169,7 +172,8 @@ class DockerfileParser:
         # Process each layer in the history
         for entry in self.hist:
             # Skip commands that belong to the base image
-            if from_last_created_by and entry["CreatedBy"] == from_last_created_by:
+            if from_last_created_by and entry[
+                    "CreatedBy"] == from_last_created_by:
                 break
 
             self._insert_step(entry["CreatedBy"])
