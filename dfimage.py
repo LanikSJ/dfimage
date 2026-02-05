@@ -6,9 +6,7 @@ from an existing Docker image by analyzing its layer history.
 """
 
 import sys
-from typing import Dict
-from typing import List
-from typing import Optional
+from typing import Dict, List, Optional
 
 from docker import DockerClient  # type: ignore
 from docker.errors import DockerException  # type: ignore
