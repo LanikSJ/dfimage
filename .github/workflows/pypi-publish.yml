@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'dfimage.py'
+      - 'pyproject.toml'
   workflow_dispatch:
     inputs:
       publish_target:
@@ -52,7 +55,7 @@ jobs:
     name: Upload Release to PyPI
     runs-on: ubuntu-latest
     needs: build-wheel
-    if: github.event.inputs.publish_target == 'pypi'
+    if: github.event_name == 'push' || github.event.inputs.publish_target == 'pypi'
     environment:
       name: pypi
       url: https://pypi.org/p/dfimage
