@@ -1,4 +1,4 @@
-# AI Rules & Project Standards for dfimage
+# Agent Rules & Project Standards for dfimage
 
 ## Repository Overview
 
