@@ -9,7 +9,7 @@ from typing import Dict
 from typing import List
 from typing import Optional
 
-from docker import DockerClient  # type: ignore
+from docker import from_env  # type: ignore
 from docker.errors import DockerException  # type: ignore
 
 
@@ -46,7 +46,7 @@ class DockerfileParser:
 
         # Initialize Docker client
         try:
-            self.cli = DockerClient(base_url="unix:///var/run/docker.sock")
+            self.cli = from_env()
         except DockerException as e:
             raise DockerException(f"Failed to connect to Docker daemon: {e}")
 
