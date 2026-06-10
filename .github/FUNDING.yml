@@ -4,4 +4,7 @@
 github: laniksj
 patreon: laniksj
 buy_me_a_coffee: laniksj
-custom: ["https://www.paypal.me/laniksj"]
+custom:
+  [
+    "https://www.paypal.com/donate/?business=ARJNJE9TBTPH4&no_recurring=0&currency_code=USD",
+  ]
