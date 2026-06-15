@@ -27,7 +27,7 @@ dfimage is a tool for analyzing disk usage of Docker images, helping developers 
 - Follow the project's `.markdownlint.json` configuration strictly
 - Address ALL markdownlint issues immediately - no exceptions or workarounds
 - Common requirements include:
-  - Maximum line length of 80 characters (MD013)
+  - Maximum line length of 80 characters (MD013) (overridden to 200 in .markdownlint.json)
   - Consistent heading styles and hierarchy
   - Proper list formatting and indentation
   - Blank lines around headings and code blocks
@@ -36,7 +36,8 @@ dfimage is a tool for analyzing disk usage of Docker images, helping developers 
   - Files must end with newlines
   - Proper table formatting when applicable
 - Use `markdownlint --fix <filename>` for auto-fixable issues when available
-- Validate markdown files in CI/CD pipelines where applicable
+  - Validate markdown files in CI/CD pipelines where applicable
+  - Run `markdownlint --config .markdownlint.json "**/*.md"` to lint all markdown files in the repository
 
 ## Development Guidelines
 
@@ -46,6 +47,39 @@ dfimage is a tool for analyzing disk usage of Docker images, helping developers 
 - Update documentation when adding new features or modifying behavior
 - Add tests for new functionality
 - **Always run markdownlint and fix all issues in markdown files before considering changes complete**
+
+### Commit Message Convention
+
+- Use the conventional commit format: `type(scope): description`
+- Common types: `feat`, `fix`, `docs`, `refactor`, `test`, `chore`, `ci`
+- Commit descriptions should be a bullet list of changes made
+- Example:
+
+  ```text
+  docs(AGENTS.md): update agent rules for cloudflare-worker project
+
+  - this file had the wrong data from a totally different repository
+  ```
+
+#### Commit Types
+
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Formatting (white-space, etc)
+- **refactor**: Code change that neither fixes a bug nor adds a feature
+- **perf**: Performance improvement
+- **test**: Adding or correcting tests
+- **chore**: Changes to build process or auxiliary tools
+
+#### Scope Guidelines
+
+- **action**: main action logic
+- **docker**: Dockerfile or container-related
+- **docs**: documentation
+- **tests**: test-related
+- **ci**: CI/CD configuration
+- **deps**: dependency updates
 
 ### Docker Tool Standards
 
