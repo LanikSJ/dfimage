@@ -10,7 +10,7 @@ RUN python3 -m venv /app
 
 RUN source /app/bin/activate
 
-RUN pip install -e /app
+RUN pip install --no-cache-dir -e /app
 
 RUN yes | pip uninstall pip
 
