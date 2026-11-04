@@ -69,7 +69,7 @@
       "sourceType": "github",
       "skillPath": "skills/autofix/SKILL.md",
       "computedHash": "1c665af094b2a307a8ab149a4b6ee73097dac24a4fa533821d7cc2e7ede7b9cf",
-      "ref": "711af095215ad4ecde5b90cd1d0124b3f1c4ca9e"
+      "ref": "778c35a36e0afd2549c3fba86ec6e64afe649df3"
     },
     "burpsuite-project-parser": {
       "source": "trailofbits/skills",
@@ -104,7 +104,7 @@
       "sourceType": "github",
       "skillPath": "plugins/chrome-mcp-troubleshooting/skills/chrome-mcp-troubleshooting/SKILL.md",
       "computedHash": "1456ace18266e81691c6ba0e5f3ec11df4a51cfa3e50eb511a113f15ab080c68",
-      "ref": "711af095215ad4ecde5b90cd1d0124b3f1c4ca9e"
+      "ref": "f47ac10b5c8f052d6c5b7958d17f709c8e79f00e"
     }
   }
 }
