@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "skills": {
+    "address-sanitizer": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/testing-handbook-skills/skills/address-sanitizer/SKILL.md",
+      "computedHash": "51015e959e298b65a208139915e8f28cce5bf0dbff56e9d3077ffa32fa1b84d5"
+    },
+    "adjudicate-regression": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/regression-hunt/skills/adjudicate-regression/SKILL.md",
+      "computedHash": "39a3748f46eccc631369bd06f656be8467948076579a2669c75222bf38ab1206"
+    },
+    "aflpp": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/testing-handbook-skills/skills/aflpp/SKILL.md",
+      "computedHash": "d037a1550a4f51e74befd367c33d121881b97892de5867c55c74a279d1ff6c09"
+    },
+    "agentic-actions-auditor": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor/SKILL.md",
+      "computedHash": "475ce6ea0ee0929b60e76468678ffea02765245f0ad8f9d5d8d77b11096f38b9"
+    },
+    "algorand-vulnerability-scanner": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/building-secure-contracts/skills/algorand-vulnerability-scanner/SKILL.md",
+      "computedHash": "639815ad66e8d3c9ae76d8da0a0a9d362d5d9a1a55930dd6bf9d6d318fa9fca7"
+    },
+    "atheris": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/testing-handbook-skills/skills/atheris/SKILL.md",
+      "computedHash": "fa62aee59faae2046372ae393990fcd765c358442f9985daad91f555361c10bb"
+    },
+    "audit-augmentation": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/trailmark/skills/audit-augmentation/SKILL.md",
+      "computedHash": "6a13840d47f9bf155a408bfc813f6722f499d50f7b1147c747a445bfce11f176"
+    },
+    "audit-context-building": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/audit-context-building/skills/audit-context-building/SKILL.md",
+      "computedHash": "aed6088124a47915aa4708e4fbb9be7383348dbb67bff2b44dd4dcde459699c7"
+    },
+    "audit-prep-assistant": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/building-secure-contracts/skills/audit-prep-assistant/SKILL.md",
+      "computedHash": "7ccc0cf0a7a7f1193bde47da289be6aa2dbfffab63a245323405a1a550719b7c"
+    },
+    "autofix": {
+      "source": "coderabbitai/skills",
+      "sourceType": "github",
+      "skillPath": "skills/autofix/SKILL.md",
+      "computedHash": "1c665af094b2a307a8ab149a4b6ee73097dac24a4fa533821d7cc2e7ede7b9cf"
+    },
+    "burpsuite-project-parser": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/burpsuite-project-parser/skills/burpsuite-project-parser/SKILL.md",
+      "computedHash": "71e88c62718aa91fc91a2cc7acc69168f8cec1ea1e740f4eeac8709c1bfdc6b6"
+    },
+    "c-review": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/c-review/skills/c-review/SKILL.md",
+      "computedHash": "bc9a497ab463403f8e3c99edba447254446e3192c52d0893194eec1c9a44202f"
+    },
+    "cairo-vulnerability-scanner": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/building-secure-contracts/skills/cairo-vulnerability-scanner/SKILL.md",
+      "computedHash": "777035a9acdce81226078926b04e89c5087e3a3d28a0b9d5eee22369e645fb03"
+    },
+    "cargo-fuzz": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/testing-handbook-skills/skills/cargo-fuzz/SKILL.md",
+      "computedHash": "9b30ab87e43c6c0bc5a97452b0051e7b0ec51205bc0293f40b92ce036046bec0"
+    },
+    "chrome-mcp-troubleshooting": {
+      "source": "trailofbits/skills",
+      "sourceType": "github",
+      "skillPath": "plugins/chrome-mcp-troubleshooting/skills/chrome-mcp-troubleshooting/SKILL.md",
+      "computedHash": "f47ac10b5c8f052d6c5b7958d17f709c8e79f00e"
+    }
+  }
+}
