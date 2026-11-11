@@ -56,8 +56,8 @@ jobs:
       - name: Update Skills
         run: |
           echo "Fetching upstream changes..."
-          git fetch origin
-          git reset --hard origin/main
+          git fetch origin +refs/heads/master:refs/remotes/origin/master
+          git reset --hard origin/master
           echo "Running npx skills update with fresh resolution..."
           npx skills update --yes
 
