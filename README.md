@@ -113,6 +113,15 @@ context that was present when the original `docker build` command was executed a
 directory or file was copied to the image's filesystem (you'll see the file/ directory checksum and the
 destination it was copied to).
 
+## ⚙️ Skills Automation
+
+This repository maintains agent skills via `skills-lock.json`. The GitHub Actions
+workflow automatically updates the skills monthly and creates a pull request.
+
+- **Workflow**: `.github/workflows/skills-update.yml`
+- **Schedule**: Monthly on the 2nd at 03:00 UTC
+- **Manual run**: `npx skills update`
+
 ## 🐛 Bugs
 
 Please report any bugs or issues you find. Thanks!

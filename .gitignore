@@ -42,3 +42,6 @@ Thumbs.db
 
 # Docker
 !*.dockerignore
+
+# Global .agents folder (using global .agents configuration)
+.agents/
